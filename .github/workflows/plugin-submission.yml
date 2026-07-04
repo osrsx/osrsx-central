@@ -1,0 +1,413 @@
+name: Plugin submission
+
+# Issue-driven submission pipeline (ported from zigglers/rachet, adapted for JVM jars):
+#   issue opened/edited with the `plugin-submission` label
+#     -> clone the author's repo, `./gradlew build`
+#     -> validate the jar manifest headers + Osrsx-Api-Version
+#     -> publish the jar as a GitHub Release asset, compute sha256
+#     -> write plugins/<org>/<name>/{metadata.json,<version>/manifest.yml} on a bot branch
+#     -> open the review PR (a maintainer merges it to publish)
+#
+# Runs entirely on the auto-provisioned GITHUB_TOKEN (no external PAT): the release, the bot-branch push,
+# and the review PR are all same-repo operations covered by the permissions block below. The PR is opened
+# inline (not via a dispatched workflow) because GITHUB_TOKEN deliberately can't trigger downstream runs —
+# inlining sidesteps that so no PAT is needed. A maintainer merging the PR triggers update-registry.yml.
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  models: read          # GitHub Models — the AI review of the submitted source (actions/ai-inference)
+
+concurrency:
+  group: submission-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  process-submission:
+    if: contains(github.event.issue.labels.*.name, 'plugin-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout registry
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+
+      - name: Parse submission
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            // Extract the value under a "### <Heading>" form field.
+            const field = (label) => {
+              const re = new RegExp(`###\\s*${label}\\s*\\n+([^#]*)`, 'i');
+              const m = body.match(re);
+              if (!m) return '';
+              const v = m[1].trim();
+              return (v === '_No response_' || v === 'None') ? '' : v;
+            };
+            const repository = field('Repository URL');
+            if (!/^https:\/\/github\.com\//.test(repository)) {
+              core.setFailed('Missing or invalid Repository URL');
+              await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number,
+                body: '❌ Could not parse a valid **Repository URL** from the issue. Please edit the issue.' });
+              return;
+            }
+            const [, owner, repo] = repository.replace(/\.git$/, '').match(/github\.com\/([^/]+)\/([^/]+)/);
+            core.setOutput('repository', `https://github.com/${owner}/${repo}`);
+            core.setOutput('owner', owner);
+            core.setOutput('repo', repo);
+            core.setOutput('changelog', field('Changelog (optional)'));
+            core.setOutput('commit', field('Commit (optional)'));
+            core.setOutput('version', field('Version (optional)'));
+            core.setOutput('publisher', owner);   // publisher = the repo owner; metadata comes from plugin.yaml
+
+      - name: Clone plugin repo
+        run: |
+          set -euo pipefail
+          git clone "${{ steps.parse.outputs.repository }}" plugin-src \
+            || { echo "Could not clone the repository — make sure it's a **public** GitHub repo and the URL is correct." > "$GITHUB_WORKSPACE/reject_reason.txt"; exit 1; }
+          cd plugin-src
+          if [ -n "${{ steps.parse.outputs.commit }}" ]; then git checkout "${{ steps.parse.outputs.commit }}"; fi
+          echo "SHA=$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
+
+      - name: Build plugin jar
+        run: |
+          set -euo pipefail
+          cd plugin-src
+          chmod +x ./gradlew
+          chmod +x ./gradlew 2>/dev/null || true
+          [ -x ./gradlew ] || { echo "No Gradle wrapper (\`./gradlew\`) in the repo — start from **osrsx/osrsx-template**." > "$GITHUB_WORKSPACE/reject_reason.txt"; exit 1; }
+          ./gradlew --no-daemon build \
+            || { echo "\`./gradlew build\` failed. Fix your build and resubmit (check the workflow log for the compiler error)." > "$GITHUB_WORKSPACE/reject_reason.txt"; exit 1; }
+          JAR=$(find build/libs -maxdepth 1 -name '*.jar' ! -name '*-sources.jar' ! -name '*-javadoc.jar' | head -n1)
+          [ -n "$JAR" ] || { echo "The build produced no plugin jar under \`build/libs\`." > "$GITHUB_WORKSPACE/reject_reason.txt"; exit 1; }
+          echo "JAR=$(pwd)/$JAR" >> "$GITHUB_ENV"
+
+      - name: Validate jar manifest & extract identity
+        id: manifest
+        run: |
+          set -euo pipefail
+          MF=$(unzip -p "$JAR" META-INF/MANIFEST.MF | tr -d '\r')
+          get() { echo "$MF" | awk -F': ' -v k="$1" '$1==k{print $2}'; }
+          PID=$(get Osrsx-Plugin-Id); PNAME=$(get Osrsx-Plugin-Name)
+          PVER=$(get Osrsx-Plugin-Version); PAPI=$(get Osrsx-Api-Version)
+          for pair in "Osrsx-Plugin-Id:$PID" "Osrsx-Plugin-Version:$PVER" "Osrsx-Api-Version:$PAPI"; do
+            [ -n "${pair#*:}" ] || { echo "The built jar is missing the \`${pair%%:*}\` manifest header — this isn't a valid osrsx plugin. Apply the \`io.osrsx.plugin\` Gradle plugin (see **osrsx/osrsx-template**)." > "$GITHUB_WORKSPACE/reject_reason.txt"; exit 1; }
+          done
+          VER="${{ steps.parse.outputs.version }}"; VER="${VER:-$PVER}"
+          SHA256=$(sha256sum "$JAR" | cut -d' ' -f1)
+          {
+            echo "id=$PID"; echo "name=${PNAME:-$PID}"; echo "version=$VER"; echo "apiVersion=$PAPI"; echo "sha256=$SHA256"
+          } >> "$GITHUB_OUTPUT"
+
+      # The rich metadata (name/description/authors/tags) is derived from the plugin's own generated
+      # plugin.yaml (bundled in the jar) — the author never re-types it in the submission.
+      - name: Read plugin.yaml metadata
+        id: meta
+        run: |
+          set -euo pipefail
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+          NAME='${{ steps.manifest.outputs.name }}'; DESC=""; AUTHORS="[]"; TAGS="[]"
+          # plugin.yaml is REQUIRED — it's what the io.osrsx.plugin Gradle plugin generates, and how we
+          # qualify a repo as a real osrsx plugin (beyond the manifest headers).
+          unzip -p "$JAR" plugin.yaml > plugin.yaml 2>/dev/null && [ -s plugin.yaml ] \
+            || { echo "The jar has no \`plugin.yaml\` — apply the \`io.osrsx.plugin\` Gradle plugin (it generates it from your \`osrsxPlugin { }\` block)." > "$GITHUB_WORKSPACE/reject_reason.txt"; exit 1; }
+          NAME=$(yq -r '.name // "'"$NAME"'"' plugin.yaml)
+          DESC=$(yq -r '.description // ""' plugin.yaml)
+          AUTHORS=$(yq -o=json -I=0 '.authors // []' plugin.yaml)
+          TAGS=$(yq -o=json -I=0 '.tags // []' plugin.yaml)
+          # apiRange = the SDK versions this build supports (Maven/NeoForge range). The marketplace uses it
+          # to only offer this version to compatible clients. Blank ⇒ host falls back to the major gate.
+          RANGE=$(yq -r '.apiRange // ""' plugin.yaml)
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "authors=$AUTHORS" >> "$GITHUB_OUTPUT"
+          echo "tags=$TAGS" >> "$GITHUB_OUTPUT"
+          echo "apiRange=$RANGE" >> "$GITHUB_OUTPUT"
+          { echo "description<<__YAML_EOF__"; echo "$DESC"; echo "__YAML_EOF__"; } >> "$GITHUB_OUTPUT"
+
+      # Static behaviour/security scan of the submitted source — the reviewer-facing report that goes into
+      # the review PR body. It flags which capabilities the plugin actually reaches for (network, filesystem,
+      # process, reflection, native code) so a human can eyeball anything a game-automation plugin shouldn't
+      # need. This is a grep-based signal, not a verdict; the maintainer still reviews before merging.
+      - name: Scan plugin (capability report)
+        env:
+          PLUGIN: ${{ steps.parse.outputs.publisher }}/${{ steps.manifest.outputs.id }}
+          REPO: ${{ steps.parse.outputs.repository }}
+        run: |
+          cd plugin-src || exit 0
+          mapfile -t SRC < <(find src -type f \( -name '*.kt' -o -name '*.java' \) 2>/dev/null)
+          FILES=${#SRC[@]}
+          LOC=$( ([ "$FILES" -gt 0 ] && cat "${SRC[@]}" || true) | wc -l | tr -d ' ')
+          scan() { grep -rElE "$1" src 2>/dev/null | wc -l | tr -d ' '; }
+          flag() { if [ "${1:-0}" -gt 0 ]; then echo "⚠️ $1 file(s)"; else echo "— none"; fi; }
+          NET=$(scan 'java\.net\.|java\.net\.http|Socket|HttpClient|HttpURLConnection|URL\(|okhttp|WebSocket')
+          FS=$(scan 'java\.io\.File|java\.nio\.file|Files\.|FileOutputStream|FileWriter|RandomAccessFile')
+          PROC=$(scan 'Runtime\.getRuntime|ProcessBuilder|\.exec\(')
+          REFL=$(scan 'java\.lang\.reflect|Class\.forName|::class\.java|setAccessible|isAccessible')
+          NATIVE=$(scan 'System\.load|System\.loadLibrary|@JvmStatic external|\bnative\b')
+          mapfile -t APIS < <(grep -rohE 'io\.osrsx\.[a-zA-Z0-9_.]+' src 2>/dev/null | sort -u | sed 's/^/`/; s/$/`/')
+          API_LIST=$( [ "${#APIS[@]}" -gt 0 ] && printf '%s, ' "${APIS[@]}" | sed 's/, $//' || echo "_none detected_")
+          {
+            echo "### 🔎 Plugin scan — \`${PLUGIN}\`"
+            echo ""
+            echo "Source: ${REPO} · **${FILES} file(s)**, **${LOC} LOC**"
+            echo ""
+            echo "**Capability surface** (grep of the source — a reviewer flag, not a verdict):"
+            echo ""
+            echo "| Capability | Signal |"
+            echo "|---|---|"
+            echo "| 🌐 Network | $(flag "$NET") |"
+            echo "| 📁 Filesystem | $(flag "$FS") |"
+            echo "| ⚙️ Process / exec | $(flag "$PROC") |"
+            echo "| 🪞 Reflection | $(flag "$REFL") |"
+            echo "| 🧬 Native / JNI | $(flag "$NATIVE") |"
+            echo ""
+            echo "**osrsx API surface used:** ${API_LIST}"
+            echo ""
+            echo "<sub>A game-automation plugin normally needs none of the flagged capabilities — anything ⚠️ warrants a closer look.</sub>"
+          } > "$GITHUB_WORKSPACE/scan.md"
+          cat "$GITHUB_WORKSPACE/scan.md"   # embedded into the review PR body by the Open review PR step
+
+      # AI review of the SUBMITTED PLUGIN SOURCE (not the registry PR/issue) — runs only here, AFTER the
+      # build + manifest + plugin.yaml gates have confirmed it's a real osrsx plugin. Copilot code review
+      # only ever sees a PR diff (which for us is registry metadata), so to review the actual plugin code we
+      # feed the cloned source to GitHub Models. Best-effort: if Models isn't enabled the job continues and
+      # the PR falls back to the deterministic capability scan above.
+      - name: Build AI-review prompt from the plugin source
+        run: |
+          cd plugin-src || exit 0
+          {
+            echo "You are reviewing the source of an osrsx game-automation plugin submitted for publication."
+            echo "Repo: ${{ steps.parse.outputs.repository }}"
+            echo "Files (each may be truncated to its first 400 lines):"
+            echo
+            for f in $(find src -type f \( -name '*.kt' -o -name '*.java' \) 2>/dev/null | head -40); do
+              echo "===== $f ====="
+              sed -n '1,400p' "$f"
+              echo
+            done
+          } | head -c 60000 > "$GITHUB_WORKSPACE/ai_prompt.txt"
+          echo "prompt: $(wc -c < "$GITHUB_WORKSPACE/ai_prompt.txt") bytes"
+
+      - name: AI code review of the plugin source (GitHub Models)
+        id: aireview
+        continue-on-error: true
+        uses: actions/ai-inference@v1
+        with:
+          # A Models-scoped PAT (osrsx/ziggle-dev's individual GitHub Models entitlement) — the org's
+          # GITHUB_TOKEN can't reach Models without an org-level enablement this org doesn't have.
+          token: ${{ secrets.MODELS_TOKEN }}
+          # gpt-4.1 is the newest OpenAI model on GitHub Models' FREE tier. GPT-5 is catalog-listed but
+          # "unavailable_model" on the free entitlement — it needs paid Models usage. Swap the id here if
+          # paid Models billing is enabled for the token.
+          model: openai/gpt-4.1
+          system-prompt: >-
+            You are a security-focused reviewer of osrsx game-automation plugins. Review the submitted plugin
+            source for malicious behaviour, data exfiltration, obfuscation, and unexpected network / filesystem
+            / process / native / reflection use, plus general code quality. Output concise GitHub markdown: a
+            bold one-line verdict (either "LGTM" or "⚠️ Concerns") followed by a short bullet list. This is
+            advisory for a human maintainer, not a gate.
+          prompt-file: ${{ github.workspace }}/ai_prompt.txt
+          max-tokens: 800
+
+      - name: Assemble AI-review section
+        env:
+          AI: ${{ steps.aireview.outputs.response }}
+        run: |
+          {
+            echo "#### 🤖 AI code review of the source"
+            echo ""
+            if [ -n "${AI:-}" ]; then
+              printf '%s\n' "$AI"
+              echo ""
+              echo "<sub>Generated by GitHub Models (gpt-4o) over the submitted source — advisory, not a gate.</sub>"
+            else
+              echo "_Not available — enable **GitHub Models** for the org/repo to get an automatic AI review of the submitted source. (The deterministic capability scan above still applies.)_"
+            fi
+          } > "$GITHUB_WORKSPACE/ai_review.md"
+          cat "$GITHUB_WORKSPACE/ai_review.md"
+
+      - name: Publish jar as a release asset
+        id: release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          PUB="${{ steps.parse.outputs.publisher }}"; PID="${{ steps.manifest.outputs.id }}"; VER="${{ steps.manifest.outputs.version }}"
+          TAG="${PID}-${VER}"
+          ASSET="${PID}-${VER}.jar"
+          cp "$JAR" "$ASSET"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "$TAG" --notes "Auto-published from ${{ steps.parse.outputs.repository }} @ ${SHA}"
+          gh release upload "$TAG" "$ASSET" --clobber
+          echo "artifact=https://github.com/${{ github.repository }}/releases/download/${TAG}/${ASSET}" >> "$GITHUB_OUTPUT"
+
+      - name: Write registry metadata on a bot branch
+        id: commit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NAME: ${{ steps.meta.outputs.name }}
+          DESC: ${{ steps.meta.outputs.description }}
+          AUTHORS: ${{ steps.meta.outputs.authors }}
+          TAGS: ${{ steps.meta.outputs.tags }}
+          RANGE: ${{ steps.meta.outputs.apiRange }}
+          CHANGELOG: ${{ steps.parse.outputs.changelog }}
+        run: |
+          set -euo pipefail
+          PUB="${{ steps.parse.outputs.publisher }}"; PID="${{ steps.manifest.outputs.id }}"
+          VER="${{ steps.manifest.outputs.version }}"; API="${{ steps.manifest.outputs.apiVersion }}"
+          SHA256="${{ steps.manifest.outputs.sha256 }}"; ART="${{ steps.release.outputs.artifact }}"
+          REPO="${{ steps.parse.outputs.repository }}"; DATE=$(date -u +%Y-%m-%d)
+          README="https://raw.githubusercontent.com/${{ steps.parse.outputs.owner }}/${{ steps.parse.outputs.repo }}/${SHA}/README.md"
+          DIR="plugins/${PUB}/${PID}"; mkdir -p "$DIR/${VER}"
+
+          # Metadata (name/description/authors/tags) comes from the plugin's own plugin.yaml — not the issue.
+          META="$DIR/metadata.json"
+          [ -f "$META" ] || echo "{\"id\":\"${PID}\",\"publisher\":\"${PUB}\",\"author\":\"${PUB}\",\"repository\":\"${REPO}\",\"versions\":{},\"latest\":\"\"}" > "$META"
+          jq --arg v "$VER" --arg d "$DATE" --arg s "$SHA" --arg a "$API" --arg h "$SHA256" --arg art "$ART" --arg r "$README" \
+             --arg name "$NAME" --arg desc "$DESC" --arg repo "$REPO" --arg cl "$CHANGELOG" --arg range "$RANGE" \
+             --argjson authors "${AUTHORS:-[]}" --argjson tags "${TAGS:-[]}" \
+             '.name=$name | .description=$desc | .repository=$repo | .authors=$authors | .tags=$tags |
+              .versions[$v]={date:$d,commit:$s,apiVersion:$a,apiRange:$range,sha256:$h,artifact:$art,readme:$r,changelog:$cl} | .latest=$v' \
+             "$META" > "$META.tmp" && mv "$META.tmp" "$META"
+
+          cat > "$DIR/${VER}/manifest.yml" <<YAML
+          id: ${PUB}/${PID}
+          name: ${{ steps.manifest.outputs.name }}
+          version: ${VER}
+          apiVersion: ${API}
+          apiRange: "${RANGE}"
+          publisher: ${PUB}
+          repository: ${REPO}
+          commit: ${SHA}
+          date: ${DATE}
+          sha256: ${SHA256}
+          artifact: ${ART}
+          YAML
+
+          BRANCH="${PUB}/${PID}@${SHA}"
+          git config user.name "osrsx-bot"; git config user.email "bot@osrsx.dev"
+          git checkout -b "$BRANCH"
+          git add "$DIR"
+          git commit -m "feat: add ${PUB}/${PID}@${VER}"
+          git push -f origin "$BRANCH"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "metafile=$META" >> "$GITHUB_OUTPUT"
+
+      # Open the INTERMEDIATE review PR (GITHUB_TOKEN + pull-requests:write). Its body carries the registry
+      # facts: repo link, derived metadata, and the deterministic capability scan. The AI review of the
+      # source and the maintainer DECISION are posted on the ISSUE instead (review first, then a locked,
+      # bot-authored yes/no that only maintainers can edit). The publish decision comes from that issue
+      # comment — see pr-decision.yml — not from merging the PR by hand.
+      - name: Open review PR + post decision to the issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PLUGIN: ${{ steps.parse.outputs.publisher }}/${{ steps.manifest.outputs.id }}
+          VERSION: ${{ steps.manifest.outputs.version }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+          ISSUE: ${{ github.event.issue.number }}
+          REPO: ${{ steps.parse.outputs.repository }}
+          API: ${{ steps.manifest.outputs.apiVersion }}
+          RANGE: ${{ steps.meta.outputs.apiRange }}
+          DESC: ${{ steps.meta.outputs.description }}
+          AUTHORS: ${{ steps.meta.outputs.authors }}
+          TAGS: ${{ steps.meta.outputs.tags }}
+        run: |
+          set -uo pipefail
+          AUTHORS_D=$(printf '%s' "${AUTHORS:-[]}" | jq -r 'if length>0 then join(", ") else "—" end' 2>/dev/null || echo "—")
+          TAGS_D=$(printf '%s' "${TAGS:-[]}" | jq -r 'if length>0 then join(", ") else "—" end' 2>/dev/null || echo "—")
+          # PR body = intro + source link + metadata table + capability scan + close marker (AI review and
+          # the decision live on the issue).
+          {
+            echo "Intermediate review PR for \`${PLUGIN}@${VERSION}\`. **Do not merge/close by hand** — the"
+            echo "AI review and decision are on issue #${ISSUE} (a maintainer ticks approve/deny there)."
+            echo ""
+            echo "**Source:** ${REPO} @ \`${SHA}\`"
+            echo ""
+            echo "#### Metadata"
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| id | \`${PLUGIN}\` |"
+            echo "| version | \`${VERSION}\` |"
+            echo "| apiVersion | \`${API}\` |"
+            echo "| apiRange | \`${RANGE}\` |"
+            echo "| authors | ${AUTHORS_D} |"
+            echo "| tags | ${TAGS_D} |"
+            echo "| description | ${DESC:-—} |"
+            echo ""
+            cat "$GITHUB_WORKSPACE/scan.md"
+            echo ""
+            echo "Closes #${ISSUE}"
+          } > "$GITHUB_WORKSPACE/pr_body.md"
+
+          PR_URL=$(gh pr create --base main --head "$BRANCH" \
+                --title "🤖 Add plugin: ${PLUGIN}@${VERSION}" --label plugin-submission \
+                --body-file "$GITHUB_WORKSPACE/pr_body.md" 2>pr_err.txt)
+          if [ -z "${PR_URL:-}" ]; then
+            echo "gh pr create failed: $(tail -1 pr_err.txt)"
+            gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" \
+              --body "⚠️ Built and staged **${PLUGIN}@${VERSION}**, but the review PR couldn't be created automatically (\`$(tail -1 pr_err.txt)\`)."
+            exit 1
+          fi
+          PR_NUM=$(basename "$PR_URL")
+          echo "Opened $PR_URL"
+
+          # Post the AI review of the source as a STANDALONE comment on the issue, BEFORE the decision comment.
+          {
+            cat "$GITHUB_WORKSPACE/ai_review.md"
+            echo ""
+            echo "<sub>Source: ${REPO} @ \`${SHA}\` · registry facts (metadata + capability scan) in PR #${PR_NUM}.</sub>"
+          } > "$GITHUB_WORKSPACE/review.md"
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/issues/${ISSUE}/comments" \
+            -f body="$(cat "$GITHUB_WORKSPACE/review.md")" >/dev/null
+
+          # Post the maintainer decision comment on the ISSUE. Bot-authored ⇒ only maintainers can edit it;
+          # the pr-decision workflow acts when a maintainer ticks a box. The HTML marker carries the PR number.
+          {
+            echo "<!-- osrsx-decision pr=${PR_NUM} -->"
+            echo "### 🛡️ Maintainer decision"
+            echo ""
+            echo "AI review is in the comment above; metadata + capability scan are in PR #${PR_NUM}."
+            echo ""
+            echo "**Maintainers only** — edit this comment and tick exactly one box:"
+            echo ""
+            echo "- [ ] ✅ **Approve** — merge the PR and publish \`${PLUGIN}@${VERSION}\` to the registry"
+            echo "- [ ] ❌ **Deny** — close the PR without publishing"
+            echo ""
+            echo "Reason for denial (optional — shown to the submitter):"
+            echo "> "
+            echo ""
+            echo "<sub>Ticking a box merges/closes the PR, notifies the submitter, sets the label and closes this issue. This thread is locked to maintainers.</sub>"
+          } > "$GITHUB_WORKSPACE/decision.md"
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/issues/${ISSUE}/comments" \
+            -f body="$(cat "$GITHUB_WORKSPACE/decision.md")" --jq '.id' >/dev/null
+
+          # Lock the issue thread so only maintainers can act on the decision.
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/issues/${ISSUE}/lock" -f lock_reason=resolved >/dev/null 2>&1 || true
+
+      - name: Report result (auto-reject on failure)
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const n = context.issue.number;
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            // Failure → auto-reject: explain why, label, and close the issue.
+            let reason = 'The submission did not pass validation.';
+            try { const r = fs.readFileSync(`${process.env.GITHUB_WORKSPACE}/reject_reason.txt`, 'utf8').trim(); if (r) reason = r; } catch {}
+            await github.rest.issues.createComment({ ...context.repo, issue_number: n,
+              body: `❌ **Auto-rejected.** ${reason}\n\nFix it and open a new submission. [Workflow run](${runUrl}).` });
+            try { await github.rest.issues.addLabels({ ...context.repo, issue_number: n, labels: ['rejected'] }); } catch {}
+            try { await github.rest.issues.removeLabel({ ...context.repo, issue_number: n, name: 'pending-review' }); } catch {}
+            await github.rest.issues.update({ ...context.repo, issue_number: n, state: 'closed', state_reason: 'not_planned' });

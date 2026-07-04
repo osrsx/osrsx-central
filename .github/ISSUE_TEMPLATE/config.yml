@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: osrsx docs & template
+    url: https://github.com/osrsx/osrsx-template
+    about: How to build an osrsx plugin. Submit one with the Plugin submission form.

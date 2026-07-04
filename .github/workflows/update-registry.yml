@@ -1,0 +1,44 @@
+name: Update registry index
+
+# On every merge to main that touches plugins/**, regenerate registry.json from the per-plugin
+# metadata and commit it back. registry.json is generated, never hand-edited — the client reads it at
+# raw.githubusercontent.com/<owner>/osrsx-plugins/main/registry.json.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'plugins/**'
+      - 'scripts/generate-registry.js'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-registry
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate all metadata
+        run: node scripts/validate-plugin.js --all
+      - name: Regenerate registry.json
+        run: node scripts/generate-registry.js
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- registry.json; then
+            echo "registry.json unchanged."
+            exit 0
+          fi
+          git config user.name "osrsx-bot"
+          git config user.email "bot@osrsx.dev"
+          git add registry.json
+          git commit -m "chore: update registry index [skip ci]"
+          git push

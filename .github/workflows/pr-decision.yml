@@ -1,0 +1,119 @@
+name: Plugin PR decision
+
+# The publish decision is made from the SUBMISSION ISSUE, not by merging the PR by hand. plugin-submission.yml
+# posts a locked, bot-authored "Maintainer decision" comment (marker `<!-- osrsx-decision pr=<n> -->`) with an
+# Approve / Deny checkbox. Only maintainers can edit that comment; when one ticks a box this workflow:
+#   Approve -> squash-merge the intermediate PR, regenerate registry.json, publish
+#   Deny    -> close the intermediate PR (with the optional reason)
+# then in both cases: delete the decision comment, swap the issue label (approved/rejected), @mention the
+# submitter (crediting the deciding maintainer), unlock and close the issue.
+#
+# Triggered by a human edit (a maintainer ticking the box), so GITHUB_TOKEN's "no recursive runs" rule does
+# not suppress it.
+
+on:
+  issue_comment:
+    types: [edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  decide:
+    if: contains(github.event.comment.body, '<!-- osrsx-decision')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Resolve the decision
+        id: decide
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = context.payload.comment;
+            const issue = context.payload.issue;
+            const issue_number = issue.number;
+            const editor = context.payload.sender.login;
+            const body = comment.body || '';
+
+            // Only repo maintainers may act. (They're already the only ones who can edit a bot comment, but
+            // verify the editor's permission as a belt-and-suspenders check.)
+            let perm = 'none';
+            try {
+              perm = (await github.rest.repos.getCollaboratorPermissionLevel({ ...context.repo, username: editor })).data.permission;
+            } catch (e) { core.info(`permission lookup failed for ${editor}: ${e.message}`); }
+            if (!['admin', 'maintain', 'write'].includes(perm)) {
+              core.info(`ignoring edit by ${editor} (permission: ${perm})`);
+              return;
+            }
+
+            const prMatch = body.match(/osrsx-decision pr=(\d+)/);
+            if (!prMatch) { core.info('no PR marker'); return; }
+            const pr_number = Number(prMatch[1]);
+
+            const approve = /- \[[xX]\][^\n]*Approve/i.test(body);
+            const deny = /- \[[xX]\][^\n]*Deny/i.test(body);
+            if (approve === deny) { core.info(`waiting for a single tick (approve=${approve}, deny=${deny})`); return; }
+
+            let reason = '';
+            const rm = body.match(/Reason for denial[^\n]*\n>\s?(.*)/i);
+            if (rm && rm[1] && rm[1].trim()) reason = rm[1].trim();
+
+            const submitter = issue.user && issue.user.login;
+            const at = submitter ? `@${submitter} ` : '';
+
+            let pr;
+            try { pr = (await github.rest.pulls.get({ ...context.repo, pull_number: pr_number })).data; }
+            catch (e) { core.setFailed(`PR #${pr_number} not found: ${e.message}`); return; }
+
+            // Label the PR itself with the decision (persists on the merged/closed PR).
+            try { await github.rest.issues.addLabels({ ...context.repo, issue_number: pr_number, labels: [approve ? 'approved' : 'rejected'] }); } catch (e) {}
+
+            if (approve) {
+              await github.rest.pulls.merge({ ...context.repo, pull_number: pr_number, merge_method: 'squash' });
+            } else {
+              await github.rest.pulls.update({ ...context.repo, pull_number: pr_number, state: 'closed' });
+            }
+            try { await github.rest.git.deleteRef({ ...context.repo, ref: `heads/${pr.head.ref}` }); } catch (e) {}
+
+            // Unlock FIRST — a locked conversation blocks deleting/adding comments with the Actions token.
+            try { await github.rest.issues.unlock({ ...context.repo, issue_number }); } catch (e) { core.info(`unlock failed: ${e.message}`); }
+
+            // Delete the intermediate decision comment.
+            try { await github.rest.issues.deleteComment({ ...context.repo, comment_id: comment.id }); }
+            catch (e) { core.info(`deleteComment failed: ${e.message}`); }
+
+            // Swap the issue label.
+            for (const name of ['pending-review', approve ? 'rejected' : 'approved']) {
+              try { await github.rest.issues.removeLabel({ ...context.repo, issue_number, name }); } catch (e) {}
+            }
+            try { await github.rest.issues.addLabels({ ...context.repo, issue_number, labels: [approve ? 'approved' : 'rejected'] }); } catch (e) {}
+
+            // @mention the submitter (crediting the deciding maintainer) and close.
+            const msg = approve
+              ? `${at}🟢 **Approved** by @${editor} — merged as #${pr_number} and published to the registry. It will appear in the in-game Marketplace within a few minutes.`
+              : `${at}🔴 **Denied** by @${editor}.${reason ? `\n\n**Reason:** ${reason}` : ''}\n\nAddress any feedback and open a new submission when you're ready.`;
+            await github.rest.issues.createComment({ ...context.repo, issue_number, body: msg });
+            await github.rest.issues.update({ ...context.repo, issue_number, state: 'closed', state_reason: approve ? 'completed' : 'not_planned' });
+
+            core.setOutput('approved', approve ? 'true' : 'false');
+
+      # On approve, the PR merge (done above via GITHUB_TOKEN) does NOT trigger update-registry.yml — a
+      # GITHUB_TOKEN push can't trigger workflows — so regenerate registry.json here off the merged main.
+      - name: Regenerate registry index on approve
+        if: steps.decide.outputs.approved == 'true'
+        run: |
+          git fetch origin main -q
+          git reset --hard origin/main
+          node scripts/generate-registry.js
+          if ! git diff --quiet registry.json; then
+            git config user.name "osrsx-bot"
+            git config user.email "bot@osrsx.dev"
+            git add registry.json
+            git commit -m "chore: update registry index [skip ci]"
+            git push origin HEAD:main
+          fi

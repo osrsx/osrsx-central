@@ -1,0 +1,49 @@
+name: Plugin submission
+description: Submit an osrsx plugin to the registry for review & publication
+title: "[plugin] <your-plugin-name>"
+labels: ["plugin-submission", "pending-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The easiest way to submit is **`./gradlew publishPlugin`** in your plugin project — it opens this
+        issue for you (repo + changelog) and the CI derives everything else (name / description / authors /
+        tags) from your plugin's generated `plugin.yaml`. Or fill it in by hand below.
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+      description: The public GitHub repo containing your plugin (applies the io.osrsx.plugin Gradle plugin).
+      placeholder: https://github.com/you/osrsx-myplugin
+    validations:
+      required: true
+  - type: textarea
+    id: changelog
+    attributes:
+      label: Changelog (optional)
+      description: What changed in this version — shown in the marketplace. Leave blank for the first release.
+    validations:
+      required: false
+  - type: input
+    id: commit
+    attributes:
+      label: Commit (optional)
+      description: The commit SHA to build. Defaults to the latest commit on the default branch.
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Version (optional)
+      description: Overrides the version the plugin declares. Defaults to the plugin's own version.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: The repo builds with `./gradlew build` and applies `io.osrsx.plugin`.
+          required: true
+        - label: I have the right to publish this code, and it is not malicious.
+          required: true
