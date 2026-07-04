@@ -15,7 +15,11 @@ name: Plugin submission
 
 on:
   issues:
-    types: [opened, edited, labeled]
+    # Only `opened` (+ `edited` to re-trigger) — NOT `labeled`. An issue form applies its labels as part
+    # of creation, so they're already in the `opened` payload; also listening to `labeled` would fire a
+    # second (and third) redundant run — one per label applied — that concurrency then has to cancel.
+    # Blank issues are disabled, so every submission comes through the form and `opened` always catches it.
+    types: [opened, edited]
 
 permissions:
   contents: write
