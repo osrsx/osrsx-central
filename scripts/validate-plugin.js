@@ -21,6 +21,9 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const SEMVER = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
 const ID = /^[a-z0-9][a-z0-9-]*$/;
+// A dependency coordinate: `[<org>/]<id>[:<version-or-range>]`. The id part must be kebab-case; the
+// optional range part (after ':') is validated loosely (a semver or a Maven/NeoForge range).
+const DEP = /^(?:[a-z0-9][a-z0-9-]*\/)?[a-z0-9][a-z0-9-]*(?::[^\s]+)?$/;
 
 const errors = [];
 const warnings = [];
@@ -52,6 +55,11 @@ function validateMeta(file) {
   if (!meta.description) warn(rel, '"description" is empty');
   if (!meta.repository) warn(rel, '"repository" is empty (source link shown in the marketplace)');
 
+  // Plugin type: `plugin` (default) or `library`. Libraries are additionally published to osrsx-maven.
+  if (meta.type != null && meta.type !== 'plugin' && meta.type !== 'library') {
+    fail(rel, `"type" must be "plugin" or "library" (got ${JSON.stringify(meta.type)})`);
+  }
+
   const versions = meta.versions || {};
   const keys = Object.keys(versions);
   if (keys.length === 0) { fail(rel, 'has no versions'); return; }
@@ -64,6 +72,14 @@ function validateMeta(file) {
     if (!ver.sha256 || !/^[a-f0-9]{64}$/i.test(ver.sha256)) fail(rel, `version ${v}: "sha256" missing or not a 64-hex digest`);
     if (!ver.apiVersion || !SEMVER.test(ver.apiVersion)) fail(rel, `version ${v}: "apiVersion" missing or not semver`);
     if (!ver.date) warn(rel, `version ${v}: missing "date"`);
+    // Dependencies: each a well-formed coordinate; a plugin may not depend on itself.
+    const deps = ver.dependencies || [];
+    if (!Array.isArray(deps)) fail(rel, `version ${v}: "dependencies" must be an array`);
+    else for (const d of deps) {
+      if (typeof d !== 'string' || !DEP.test(d)) { fail(rel, `version ${v}: bad dependency coordinate ${JSON.stringify(d)}`); continue; }
+      const depId = d.split('/').pop().split(':')[0];
+      if (depId === meta.id) fail(rel, `version ${v}: "${meta.id}" cannot depend on itself`);
+    }
   }
 
   if (!meta.latest) fail(rel, '"latest" is required');
