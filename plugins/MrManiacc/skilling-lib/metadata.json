@@ -1,0 +1,30 @@
+{
+  "id": "skilling-lib",
+  "publisher": "MrManiacc",
+  "author": "MrManiacc",
+  "repository": "https://github.com/MrManiacc/osrsx-skilling-lib",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-04",
+      "commit": "88223b2",
+      "apiVersion": "0.2.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "d91e2543a2069170062dab87e4f10130ca8c301a5dfb78cb1ad40750e165b610",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.0.0/skilling-lib-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-skilling-lib/88223b2/README.md",
+      "changelog": "",
+      "dependencies": []
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Skilling Library",
+  "description": "Shared skilling primitives (gathering loop, tool manager, stats) for osrsx skiller plugins.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "skilling",
+    "library"
+  ],
+  "type": "library"
+}
