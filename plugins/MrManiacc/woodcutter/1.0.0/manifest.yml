@@ -1,0 +1,12 @@
+id: MrManiacc/woodcutter
+name: Woodcutter
+version: 1.0.0
+type: plugin
+apiVersion: 0.2.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-woodcutter
+commit: c0b9a22
+date: 2026-07-04
+sha256: 884c11e23f93bf69461a5bcfe561aefa8c6faeef1d72e6314e117e07a3c54413
+artifact: https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.0.0/woodcutter-1.0.0.jar
