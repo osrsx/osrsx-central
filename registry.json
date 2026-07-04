@@ -2,6 +2,43 @@
   "version": "1.0.0",
   "plugins": [
     {
+      "id": "MrManiacc/auto-loot",
+      "org": "MrManiacc",
+      "name": "Auto Loot",
+      "description": "Picks up configured ground items within a radius.",
+      "author": "MrManiacc",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "apiVersion": "0.1.7",
+      "tags": [
+        "loot",
+        "pickup",
+        "utility"
+      ],
+      "repository": "https://github.com/MrManiacc/osrsx-auto-loot",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-auto-loot/ee52008/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.0.0/auto-loot-1.0.0.jar",
+      "sha256": "50657edda0c321734b7e7e161af72680372712556e697f0e3a5289576ac8d69f",
+      "changelog": "",
+      "versionInfo": {
+        "1.0.0": {
+          "apiVersion": "0.1.7",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.0.0/auto-loot-1.0.0.jar",
+          "sha256": "50657edda0c321734b7e7e161af72680372712556e697f0e3a5289576ac8d69f",
+          "date": "2026-07-04"
+        }
+      },
+      "created": "2026-07-04",
+      "updated": "2026-07-04"
+    },
+    {
       "id": "ziggle-dev/bank-organizer",
       "org": "ziggle-dev",
       "name": "Bank Organizer",
@@ -39,6 +76,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-04T02:55:07.250Z",
-  "totalPlugins": 1
+  "updated": "2026-07-04T03:33:56.351Z",
+  "totalPlugins": 2
 }
