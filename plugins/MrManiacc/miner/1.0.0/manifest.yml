@@ -1,0 +1,12 @@
+id: MrManiacc/miner
+name: Miner
+version: 1.0.0
+type: plugin
+apiVersion: 0.2.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-miner
+commit: a12528c
+date: 2026-07-04
+sha256: 665f32580d1d2f479f1fdefbaf2ecf05d0dcb4be2d7076d2fd47f824cd91d554
+artifact: https://github.com/osrsx/osrsx-central/releases/download/miner-1.0.0/miner-1.0.0.jar
