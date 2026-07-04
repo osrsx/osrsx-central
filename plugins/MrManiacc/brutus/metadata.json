@@ -1,0 +1,33 @@
+{
+  "id": "brutus",
+  "publisher": "MrManiacc",
+  "author": "MrManiacc",
+  "repository": "https://github.com/MrManiacc/osrsx-brutus",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-04",
+      "commit": "579c55c",
+      "apiVersion": "0.3.1",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "aa1976a6bb50fb119fe1a815a66c12315554df17025cd45acdc6fe1195824a7d",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.0.0/brutus-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-brutus/579c55c/README.md",
+      "changelog": "",
+      "dependencies": [
+        "boss-lib:1.0.0"
+      ]
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Brutus",
+  "description": "Kills the F2P cow boss Brutus (Lumbridge cow field) by dodging his telegraphed specials.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "combat",
+    "boss",
+    "f2p"
+  ],
+  "type": "plugin"
+}
