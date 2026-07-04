@@ -1,0 +1,12 @@
+id: MrManiacc/brutus
+name: Brutus
+version: 1.0.0
+type: plugin
+apiVersion: 0.3.1
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-brutus
+commit: 579c55c
+date: 2026-07-04
+sha256: aa1976a6bb50fb119fe1a815a66c12315554df17025cd45acdc6fe1195824a7d
+artifact: https://github.com/osrsx/osrsx-central/releases/download/brutus-1.0.0/brutus-1.0.0.jar
