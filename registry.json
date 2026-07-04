@@ -15,6 +15,8 @@
         "1.0.0"
       ],
       "apiVersion": "0.1.7",
+      "type": "plugin",
+      "dependencies": [],
       "tags": [
         "loot",
         "pickup",
@@ -32,7 +34,8 @@
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.0.0/auto-loot-1.0.0.jar",
           "sha256": "50657edda0c321734b7e7e161af72680372712556e697f0e3a5289576ac8d69f",
-          "date": "2026-07-04"
+          "date": "2026-07-04",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
@@ -52,6 +55,8 @@
         "1.0.0"
       ],
       "apiVersion": "0.1.7",
+      "type": "plugin",
+      "dependencies": [],
       "tags": [
         "bank",
         "utility",
@@ -69,13 +74,14 @@
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.0.0/bank-organizer-1.0.0.jar",
           "sha256": "2001148a89098b568fff16b0a380854040bfbd7aab918d0feed23f3b2910b639",
-          "date": "2026-07-04"
+          "date": "2026-07-04",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-04T03:33:56.351Z",
+  "updated": "2026-07-04T04:11:14.698Z",
   "totalPlugins": 2
 }
