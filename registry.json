@@ -42,6 +42,46 @@
       "updated": "2026-07-04"
     },
     {
+      "id": "MrManiacc/boss-lib",
+      "org": "MrManiacc",
+      "name": "Boss Library",
+      "description": "Shared boss-fight engine (provisioning, dodge/telegraph geometry, tracking triggerbot) for osrsx boss plugins.",
+      "author": "MrManiacc",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "apiVersion": "0.3.1",
+      "type": "library",
+      "dependencies": [],
+      "tags": [
+        "bossing",
+        "combat",
+        "library"
+      ],
+      "repository": "https://github.com/MrManiacc/osrsx-boss-lib",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-boss-lib/87bdf68/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/boss-lib-1.0.0/boss-lib-1.0.0.jar",
+      "sha256": "15ce928372575c3784fa0e9dd3c1a32d885fae6a4997afba4d394b0c693e8b07",
+      "changelog": "",
+      "versionInfo": {
+        "1.0.0": {
+          "apiVersion": "0.3.1",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/boss-lib-1.0.0/boss-lib-1.0.0.jar",
+          "sha256": "15ce928372575c3784fa0e9dd3c1a32d885fae6a4997afba4d394b0c693e8b07",
+          "date": "2026-07-04",
+          "dependencies": []
+        }
+      },
+      "created": "2026-07-04",
+      "updated": "2026-07-04"
+    },
+    {
       "id": "MrManiacc/cooker",
       "org": "MrManiacc",
       "name": "Cooker",
@@ -381,6 +421,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-04T04:48:11.340Z",
-  "totalPlugins": 9
+  "updated": "2026-07-04T06:09:32.014Z",
+  "totalPlugins": 10
 }
