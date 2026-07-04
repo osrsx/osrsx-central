@@ -1,0 +1,33 @@
+{
+  "id": "demonic-gorilla",
+  "publisher": "MrManiacc",
+  "author": "MrManiacc",
+  "repository": "https://github.com/MrManiacc/osrsx-demonic-gorilla",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-04",
+      "commit": "198d86d",
+      "apiVersion": "0.3.1",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "a09af6525adb69894815fc3b60118c51286ef76df4041cc1952167689ff15266",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.0.0/demonic-gorilla-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-demonic-gorilla/198d86d/README.md",
+      "changelog": "",
+      "dependencies": [
+        "boss-lib:1.0.0"
+      ]
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Demonic Gorillas",
+  "description": "Kills demonic gorillas: reactive protection prayer, offensive-style switching, boulder dodging.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "combat",
+    "boss",
+    "slayer"
+  ],
+  "type": "plugin"
+}
