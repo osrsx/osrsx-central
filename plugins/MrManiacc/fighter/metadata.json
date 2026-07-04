@@ -1,0 +1,31 @@
+{
+  "id": "fighter",
+  "publisher": "MrManiacc",
+  "author": "MrManiacc",
+  "repository": "https://github.com/MrManiacc/osrsx-fighter",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-04",
+      "commit": "ce7a488",
+      "apiVersion": "0.2.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "5acbf9cc3b3b0ef81e9fbd2850b81d1030277654bdf725b789b3228422a2c50b",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.0.0/fighter-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fighter/ce7a488/README.md",
+      "changelog": "",
+      "dependencies": []
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Fighter",
+  "description": "Attacks a configured NPC, eats food and loots drops.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "combat",
+    "fighter",
+    "kill"
+  ],
+  "type": "plugin"
+}
