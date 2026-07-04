@@ -121,6 +121,50 @@
       "updated": "2026-07-04"
     },
     {
+      "id": "MrManiacc/woodcutter",
+      "org": "MrManiacc",
+      "name": "Woodcutter",
+      "description": "Chops the best tree for your level and banks or drops the logs.",
+      "author": "MrManiacc",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "apiVersion": "0.2.0",
+      "type": "plugin",
+      "dependencies": [
+        "skilling-lib:1.0.0"
+      ],
+      "tags": [
+        "skilling",
+        "woodcutting",
+        "gathering"
+      ],
+      "repository": "https://github.com/MrManiacc/osrsx-woodcutter",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/c0b9a22/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.0.0/woodcutter-1.0.0.jar",
+      "sha256": "884c11e23f93bf69461a5bcfe561aefa8c6faeef1d72e6314e117e07a3c54413",
+      "changelog": "",
+      "versionInfo": {
+        "1.0.0": {
+          "apiVersion": "0.2.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.0.0/woodcutter-1.0.0.jar",
+          "sha256": "884c11e23f93bf69461a5bcfe561aefa8c6faeef1d72e6314e117e07a3c54413",
+          "date": "2026-07-04",
+          "dependencies": [
+            "skilling-lib:1.0.0"
+          ]
+        }
+      },
+      "created": "2026-07-04",
+      "updated": "2026-07-04"
+    },
+    {
       "id": "ziggle-dev/bank-organizer",
       "org": "ziggle-dev",
       "name": "Bank Organizer",
@@ -161,6 +205,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-04T04:47:15.000Z",
-  "totalPlugins": 4
+  "updated": "2026-07-04T04:47:26.291Z",
+  "totalPlugins": 5
 }
