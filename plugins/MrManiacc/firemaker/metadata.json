@@ -1,0 +1,33 @@
+{
+  "id": "firemaker",
+  "publisher": "MrManiacc",
+  "author": "MrManiacc",
+  "repository": "https://github.com/MrManiacc/osrsx-firemaker",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-04",
+      "commit": "8ea99c8",
+      "apiVersion": "0.2.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "03ef30c0d4006e31dad72c2f2673ae8cba95894c8c995c65f6cd0d7d5fafc746",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/firemaker-1.0.0/firemaker-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-firemaker/8ea99c8/README.md",
+      "changelog": "",
+      "dependencies": [
+        "skilling-lib:1.0.0"
+      ]
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Firemaker",
+  "description": "Lights a configured log with a tinderbox.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "skilling",
+    "firemaking",
+    "processing"
+  ],
+  "type": "plugin"
+}
