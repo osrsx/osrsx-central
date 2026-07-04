@@ -82,6 +82,50 @@
       "updated": "2026-07-04"
     },
     {
+      "id": "MrManiacc/brutus",
+      "org": "MrManiacc",
+      "name": "Brutus",
+      "description": "Kills the F2P cow boss Brutus (Lumbridge cow field) by dodging his telegraphed specials.",
+      "author": "MrManiacc",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "apiVersion": "0.3.1",
+      "type": "plugin",
+      "dependencies": [
+        "boss-lib:1.0.0"
+      ],
+      "tags": [
+        "combat",
+        "boss",
+        "f2p"
+      ],
+      "repository": "https://github.com/MrManiacc/osrsx-brutus",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-brutus/579c55c/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.0.0/brutus-1.0.0.jar",
+      "sha256": "aa1976a6bb50fb119fe1a815a66c12315554df17025cd45acdc6fe1195824a7d",
+      "changelog": "",
+      "versionInfo": {
+        "1.0.0": {
+          "apiVersion": "0.3.1",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.0.0/brutus-1.0.0.jar",
+          "sha256": "aa1976a6bb50fb119fe1a815a66c12315554df17025cd45acdc6fe1195824a7d",
+          "date": "2026-07-04",
+          "dependencies": [
+            "boss-lib:1.0.0"
+          ]
+        }
+      },
+      "created": "2026-07-04",
+      "updated": "2026-07-04"
+    },
+    {
       "id": "MrManiacc/cooker",
       "org": "MrManiacc",
       "name": "Cooker",
@@ -465,6 +509,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-04T06:11:42.441Z",
-  "totalPlugins": 11
+  "updated": "2026-07-04T06:20:14.172Z",
+  "totalPlugins": 12
 }
