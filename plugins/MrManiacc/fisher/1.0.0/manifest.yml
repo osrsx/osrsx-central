@@ -1,0 +1,12 @@
+id: MrManiacc/fisher
+name: Fisher
+version: 1.0.0
+type: plugin
+apiVersion: 0.2.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-fisher
+commit: 5322bec
+date: 2026-07-04
+sha256: 5521df921f6c0edd0e49aef03bf67d5f80d0fc58e1ea8eb47cbb9e90649b6d66
+artifact: https://github.com/osrsx/osrsx-central/releases/download/fisher-1.0.0/fisher-1.0.0.jar
