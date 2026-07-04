@@ -1,0 +1,33 @@
+{
+  "id": "cooker",
+  "publisher": "MrManiacc",
+  "author": "MrManiacc",
+  "repository": "https://github.com/MrManiacc/osrsx-cooker",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-04",
+      "commit": "793755a",
+      "apiVersion": "0.2.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "4a33ae89158f608c9526b4a19cb4fb7703d16be40f524528698abd360ad8ecd0",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/cooker-1.0.0/cooker-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-cooker/793755a/README.md",
+      "changelog": "",
+      "dependencies": [
+        "skilling-lib:1.0.0"
+      ]
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Cooker",
+  "description": "Cooks raw food at a range or fire.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "skilling",
+    "cooking",
+    "processing"
+  ],
+  "type": "plugin"
+}
