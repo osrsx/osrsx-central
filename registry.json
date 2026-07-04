@@ -82,6 +82,50 @@
       "updated": "2026-07-04"
     },
     {
+      "id": "MrManiacc/fisher",
+      "org": "MrManiacc",
+      "name": "Fisher",
+      "description": "Fishes at a spot and drops or banks the catch.",
+      "author": "MrManiacc",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "apiVersion": "0.2.0",
+      "type": "plugin",
+      "dependencies": [
+        "skilling-lib:1.0.0"
+      ],
+      "tags": [
+        "skilling",
+        "fishing",
+        "gathering"
+      ],
+      "repository": "https://github.com/MrManiacc/osrsx-fisher",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fisher/5322bec/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fisher-1.0.0/fisher-1.0.0.jar",
+      "sha256": "5521df921f6c0edd0e49aef03bf67d5f80d0fc58e1ea8eb47cbb9e90649b6d66",
+      "changelog": "",
+      "versionInfo": {
+        "1.0.0": {
+          "apiVersion": "0.2.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fisher-1.0.0/fisher-1.0.0.jar",
+          "sha256": "5521df921f6c0edd0e49aef03bf67d5f80d0fc58e1ea8eb47cbb9e90649b6d66",
+          "date": "2026-07-04",
+          "dependencies": [
+            "skilling-lib:1.0.0"
+          ]
+        }
+      },
+      "created": "2026-07-04",
+      "updated": "2026-07-04"
+    },
+    {
       "id": "MrManiacc/miner",
       "org": "MrManiacc",
       "name": "Miner",
@@ -249,6 +293,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-04T04:47:35.260Z",
-  "totalPlugins": 6
+  "updated": "2026-07-04T04:47:50.762Z",
+  "totalPlugins": 7
 }
