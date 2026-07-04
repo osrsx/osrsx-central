@@ -134,10 +134,16 @@ jobs:
           # apiRange = the SDK versions this build supports (Maven/NeoForge range). The marketplace uses it
           # to only offer this version to compatible clients. Blank ⇒ host falls back to the major gate.
           RANGE=$(yq -r '.apiRange // ""' plugin.yaml)
+          # type = plugin|library; requires = required deps (the registry `dependencies`, auto-installed by
+          # the client). A library is additionally published to osrsx-maven (see the next step).
+          TYPE=$(yq -r '.type // "plugin"' plugin.yaml)
+          REQUIRES=$(yq -o=json -I=0 '.requires // []' plugin.yaml)
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
           echo "authors=$AUTHORS" >> "$GITHUB_OUTPUT"
           echo "tags=$TAGS" >> "$GITHUB_OUTPUT"
           echo "apiRange=$RANGE" >> "$GITHUB_OUTPUT"
+          echo "type=$TYPE" >> "$GITHUB_OUTPUT"
+          echo "requires=$REQUIRES" >> "$GITHUB_OUTPUT"
           { echo "description<<__YAML_EOF__"; echo "$DESC"; echo "__YAML_EOF__"; } >> "$GITHUB_OUTPUT"
 
       # Static behaviour/security scan of the submitted source — the reviewer-facing report that goes into
@@ -256,6 +262,57 @@ jobs:
           gh release upload "$TAG" "$ASSET" --clobber
           echo "artifact=https://github.com/${{ github.repository }}/releases/download/${TAG}/${ASSET}" >> "$GITHUB_OUTPUT"
 
+      # A LIBRARY plugin is additionally published into the osrsx-maven Maven tree (io.osrsx.plugins:<id>:<v>)
+      # so other plugins can `compileOnly` it — the same anonymous raw.githubusercontent repo that serves the
+      # SDK. Ordinary plugins skip this. Needs a token with contents:write on osrsx/osrsx-maven (same secret
+      # the SDK's publish.yml uses). The jar bytes come from the build ($JAR); a minimal POM + checksums +
+      # maven-metadata.xml complete a resolvable Maven layout.
+      - name: Publish library to osrsx-maven
+        if: steps.meta.outputs.type == 'library'
+        env:
+          OSRSX_MAVEN_TOKEN: ${{ secrets.OSRSX_MAVEN_TOKEN }}
+        run: |
+          set -euo pipefail
+          PID="${{ steps.manifest.outputs.id }}"; VER="${{ steps.manifest.outputs.version }}"
+          [ -n "${OSRSX_MAVEN_TOKEN:-}" ] || { echo "type: library but no OSRSX_MAVEN_TOKEN secret — can't publish the library to osrsx-maven so dependents can't compile against it." > "$GITHUB_WORKSPACE/reject_reason.txt"; exit 1; }
+          git clone --depth 1 "https://x-access-token:${OSRSX_MAVEN_TOKEN}@github.com/osrsx/osrsx-maven.git" maven-repo
+          ARTDIR="maven-repo/io/osrsx/plugins/${PID}"
+          DEST="${ARTDIR}/${VER}"; mkdir -p "$DEST"
+          cp "$JAR" "$DEST/${PID}-${VER}.jar"
+          cat > "$DEST/${PID}-${VER}.pom" <<POM
+          <?xml version="1.0" encoding="UTF-8"?>
+          <project xmlns="http://maven.apache.org/POM/4.0.0"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+            <modelVersion>4.0.0</modelVersion>
+            <groupId>io.osrsx.plugins</groupId>
+            <artifactId>${PID}</artifactId>
+            <version>${VER}</version>
+            <packaging>jar</packaging>
+          </project>
+          POM
+          # Checksums for the jar + pom (Maven warns without them).
+          for f in "$DEST/${PID}-${VER}.jar" "$DEST/${PID}-${VER}.pom"; do
+            md5sum "$f" | cut -d' ' -f1 > "$f.md5"; sha1sum "$f" | cut -d' ' -f1 > "$f.sha1"
+          done
+          # maven-metadata.xml listing every published version of this library.
+          VERSIONS=$(ls -1 "$ARTDIR" | grep -E '^[0-9]' | sort -V)
+          LATEST=$(echo "$VERSIONS" | tail -n1)
+          {
+            echo '<?xml version="1.0" encoding="UTF-8"?>'
+            echo '<metadata>'; echo "  <groupId>io.osrsx.plugins</groupId>"; echo "  <artifactId>${PID}</artifactId>"
+            echo "  <versioning>"; echo "    <latest>${LATEST}</latest>"; echo "    <release>${LATEST}</release>"
+            echo "    <versions>"; for v in $VERSIONS; do echo "      <version>${v}</version>"; done; echo "    </versions>"
+            echo "    <lastUpdated>$(date -u +%Y%m%d%H%M%S)</lastUpdated>"; echo "  </versioning>"; echo '</metadata>'
+          } > "$ARTDIR/maven-metadata.xml"
+          md5sum "$ARTDIR/maven-metadata.xml" | cut -d' ' -f1 > "$ARTDIR/maven-metadata.xml.md5"
+          sha1sum "$ARTDIR/maven-metadata.xml" | cut -d' ' -f1 > "$ARTDIR/maven-metadata.xml.sha1"
+          cd maven-repo
+          git config user.name "osrsx-bot"; git config user.email "bot@osrsx.dev"
+          git add -A
+          git commit -m "publish io.osrsx.plugins:${PID}:${VER}" || { echo "nothing to publish (already present)"; exit 0; }
+          git push
+
       - name: Write registry metadata on a bot branch
         id: commit
         env:
@@ -265,6 +322,8 @@ jobs:
           AUTHORS: ${{ steps.meta.outputs.authors }}
           TAGS: ${{ steps.meta.outputs.tags }}
           RANGE: ${{ steps.meta.outputs.apiRange }}
+          TYPE: ${{ steps.meta.outputs.type }}
+          REQUIRES: ${{ steps.meta.outputs.requires }}
           CHANGELOG: ${{ steps.parse.outputs.changelog }}
         run: |
           set -euo pipefail
@@ -280,15 +339,17 @@ jobs:
           [ -f "$META" ] || echo "{\"id\":\"${PID}\",\"publisher\":\"${PUB}\",\"author\":\"${PUB}\",\"repository\":\"${REPO}\",\"versions\":{},\"latest\":\"\"}" > "$META"
           jq --arg v "$VER" --arg d "$DATE" --arg s "$SHA" --arg a "$API" --arg h "$SHA256" --arg art "$ART" --arg r "$README" \
              --arg name "$NAME" --arg desc "$DESC" --arg repo "$REPO" --arg cl "$CHANGELOG" --arg range "$RANGE" \
+             --arg type "${TYPE:-plugin}" --argjson deps "${REQUIRES:-[]}" \
              --argjson authors "${AUTHORS:-[]}" --argjson tags "${TAGS:-[]}" \
-             '.name=$name | .description=$desc | .repository=$repo | .authors=$authors | .tags=$tags |
-              .versions[$v]={date:$d,commit:$s,apiVersion:$a,apiRange:$range,sha256:$h,artifact:$art,readme:$r,changelog:$cl} | .latest=$v' \
+             '.name=$name | .description=$desc | .repository=$repo | .authors=$authors | .tags=$tags | .type=$type |
+              .versions[$v]={date:$d,commit:$s,apiVersion:$a,apiRange:$range,sha256:$h,artifact:$art,readme:$r,changelog:$cl,dependencies:$deps} | .latest=$v' \
              "$META" > "$META.tmp" && mv "$META.tmp" "$META"
 
           cat > "$DIR/${VER}/manifest.yml" <<YAML
           id: ${PUB}/${PID}
           name: ${{ steps.manifest.outputs.name }}
           version: ${VER}
+          type: ${TYPE:-plugin}
           apiVersion: ${API}
           apiRange: "${RANGE}"
           publisher: ${PUB}

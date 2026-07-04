@@ -74,6 +74,8 @@ function toEntry(org, meta) {
       artifact: vv.artifact || '',
       sha256: vv.sha256 || '',
       date: vv.date || '',
+      // Required plugin dependencies for this version (`<id>[:<range>]`) — the client auto-installs these.
+      dependencies: vv.dependencies || [],
     };
   }
 
@@ -87,6 +89,10 @@ function toEntry(org, meta) {
     latest,
     versions,
     apiVersion: latestV.apiVersion || meta.apiVersion || null,
+    // `plugin` (default) or `library`. Libraries are compileOnly deps + rendered/handled differently.
+    type: meta.type || 'plugin',
+    // The latest version's required dependencies, mirrored to the top level for convenience.
+    dependencies: latestV.dependencies || [],
     tags: meta.tags || [],
     repository: meta.repository || '',
     readme: latestV.readme || meta.readme || '',
