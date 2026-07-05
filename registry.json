@@ -166,11 +166,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.2.0",
+      "apiVersion": "0.7.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -181,9 +182,9 @@
         "processing"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-cooker",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-cooker/793755a/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/cooker-1.0.0/cooker-1.0.0.jar",
-      "sha256": "4a33ae89158f608c9526b4a19cb4fb7703d16be40f524528698abd360ad8ecd0",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-cooker/c3ed9a2/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/cooker-1.1.0/cooker-1.1.0.jar",
+      "sha256": "b074bacc6a6e956709a5fdb9e94009f37af61d6446a8168da467a3d3b380ca9c",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -196,10 +197,21 @@
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
+        },
+        "1.1.0": {
+          "apiVersion": "0.7.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/cooker-1.1.0/cooker-1.1.0.jar",
+          "sha256": "b074bacc6a6e956709a5fdb9e94009f37af61d6446a8168da467a3d3b380ca9c",
+          "date": "2026-07-05",
+          "dependencies": [
+            "skilling-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/demonic-gorilla",
@@ -621,6 +633,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-05T21:57:54.652Z",
+  "updated": "2026-07-05T21:58:01.755Z",
   "totalPlugins": 12
 }
