@@ -14,9 +14,20 @@
       "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-boss-lib/87bdf68/README.md",
       "changelog": "",
       "dependencies": []
+    },
+    "1.1.0": {
+      "date": "2026-07-05",
+      "commit": "c74d845",
+      "apiVersion": "0.7.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "b56b3d0b03a5eaea44fd07727bb2b9c9d696c272954f7a4a57afb284eadb73f1",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/boss-lib-1.1.0/boss-lib-1.1.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-boss-lib/c74d845/README.md",
+      "changelog": "",
+      "dependencies": []
     }
   },
-  "latest": "1.0.0",
+  "latest": "1.1.0",
   "name": "Boss Library",
   "description": "Shared boss-fight engine (provisioning, dodge/telegraph geometry, tracking triggerbot) for osrsx boss plugins.",
   "authors": [
