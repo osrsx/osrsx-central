@@ -418,11 +418,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.2.0",
+      "apiVersion": "0.7.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -433,9 +434,9 @@
         "gathering"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-miner",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-miner/a12528c/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-1.0.0/miner-1.0.0.jar",
-      "sha256": "665f32580d1d2f479f1fdefbaf2ecf05d0dcb4be2d7076d2fd47f824cd91d554",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-miner/ab0dfe2/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-1.1.0/miner-1.1.0.jar",
+      "sha256": "379e7a98f9c0dc51cb3a65dcaae964596fa8b450c33d46437bb5d81e7d12c00d",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -448,10 +449,21 @@
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
+        },
+        "1.1.0": {
+          "apiVersion": "0.7.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-1.1.0/miner-1.1.0.jar",
+          "sha256": "379e7a98f9c0dc51cb3a65dcaae964596fa8b450c33d46437bb5d81e7d12c00d",
+          "date": "2026-07-05",
+          "dependencies": [
+            "skilling-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/skilling-lib",
@@ -501,11 +513,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.2.0",
+      "apiVersion": "0.7.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -516,9 +529,9 @@
         "gathering"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-woodcutter",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/c0b9a22/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.0.0/woodcutter-1.0.0.jar",
-      "sha256": "884c11e23f93bf69461a5bcfe561aefa8c6faeef1d72e6314e117e07a3c54413",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/c427abc/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.1.0/woodcutter-1.1.0.jar",
+      "sha256": "347390d9af3373c65b8017a39a238137a0d92ae745a36f3b71d241a3e93aad8f",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -531,10 +544,21 @@
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
+        },
+        "1.1.0": {
+          "apiVersion": "0.7.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.1.0/woodcutter-1.1.0.jar",
+          "sha256": "347390d9af3373c65b8017a39a238137a0d92ae745a36f3b71d241a3e93aad8f",
+          "date": "2026-07-05",
+          "dependencies": [
+            "skilling-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "ziggle-dev/bank-organizer",
@@ -577,6 +601,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-05T21:57:25.469Z",
+  "updated": "2026-07-05T21:57:40.371Z",
   "totalPlugins": 12
 }
