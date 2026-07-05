@@ -1,0 +1,32 @@
+{
+  "id": "birdhouse",
+  "publisher": "ziggle-dev",
+  "author": "ziggle-dev",
+  "repository": "https://github.com/ziggle-dev/osrsx-birdhouse",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-05",
+      "commit": "3b4fb2f",
+      "apiVersion": "0.7.1",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "b83c5c83c1c0ca805ab76fd0b33185df24330689e56fcc9ba4c7d46d09394494",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/birdhouse-1.0.0/birdhouse-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-birdhouse/3b4fb2f/README.md",
+      "changelog": "",
+      "dependencies": []
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Birdhouse Runs",
+  "description": "Gathers supplies from the bank, web-walks to Fossil Island (via the Digsite pendant), then harvests, rebuilds and re-seeds all four bird houses.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "hunter",
+    "skilling",
+    "birdhouse",
+    "fossil-island"
+  ],
+  "type": "plugin"
+}

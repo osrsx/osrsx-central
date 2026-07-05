@@ -1,0 +1,12 @@
+id: ziggle-dev/birdhouse
+name: Birdhouse Runs
+version: 1.0.0
+type: plugin
+apiVersion: 0.7.1
+apiRange: "[0.0.0,1.0.0)"
+publisher: ziggle-dev
+repository: https://github.com/ziggle-dev/osrsx-birdhouse
+commit: 3b4fb2f
+date: 2026-07-05
+sha256: b83c5c83c1c0ca805ab76fd0b33185df24330689e56fcc9ba4c7d46d09394494
+artifact: https://github.com/osrsx/osrsx-central/releases/download/birdhouse-1.0.0/birdhouse-1.0.0.jar
