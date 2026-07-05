@@ -1,0 +1,12 @@
+id: MrManiacc/auto-loot
+name: Auto Loot
+version: 1.1.0
+type: plugin
+apiVersion: 0.4.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-auto-loot
+commit: dc8005c
+date: 2026-07-05
+sha256: 08ff1f111497b7cea02fce71108007dc032e6a2b8111148d2dfd0af730602206
+artifact: https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.1.0/auto-loot-1.1.0.jar
