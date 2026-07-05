@@ -60,11 +60,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.3.1",
+      "apiVersion": "0.7.0",
       "type": "library",
       "dependencies": [],
       "tags": [
@@ -73,9 +74,9 @@
         "library"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-boss-lib",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-boss-lib/87bdf68/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/boss-lib-1.0.0/boss-lib-1.0.0.jar",
-      "sha256": "15ce928372575c3784fa0e9dd3c1a32d885fae6a4997afba4d394b0c693e8b07",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-boss-lib/c74d845/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/boss-lib-1.1.0/boss-lib-1.1.0.jar",
+      "sha256": "b56b3d0b03a5eaea44fd07727bb2b9c9d696c272954f7a4a57afb284eadb73f1",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -86,10 +87,19 @@
           "sha256": "15ce928372575c3784fa0e9dd3c1a32d885fae6a4997afba4d394b0c693e8b07",
           "date": "2026-07-04",
           "dependencies": []
+        },
+        "1.1.0": {
+          "apiVersion": "0.7.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/boss-lib-1.1.0/boss-lib-1.1.0.jar",
+          "sha256": "b56b3d0b03a5eaea44fd07727bb2b9c9d696c272954f7a4a57afb284eadb73f1",
+          "date": "2026-07-05",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/brutus",
@@ -611,6 +621,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-05T21:57:47.611Z",
+  "updated": "2026-07-05T21:57:54.652Z",
   "totalPlugins": 12
 }
