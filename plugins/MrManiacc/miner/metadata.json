@@ -16,9 +16,22 @@
       "dependencies": [
         "skilling-lib:1.0.0"
       ]
+    },
+    "1.1.0": {
+      "date": "2026-07-05",
+      "commit": "ab0dfe2",
+      "apiVersion": "0.7.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "379e7a98f9c0dc51cb3a65dcaae964596fa8b450c33d46437bb5d81e7d12c00d",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-1.1.0/miner-1.1.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-miner/ab0dfe2/README.md",
+      "changelog": "",
+      "dependencies": [
+        "skilling-lib:1.0.0"
+      ]
     }
   },
-  "latest": "1.0.0",
+  "latest": "1.1.0",
   "name": "Miner",
   "description": "Mines a configured rock and drops or banks the ore.",
   "authors": [
