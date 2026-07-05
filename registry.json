@@ -10,11 +10,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.1.7",
+      "apiVersion": "0.4.0",
       "type": "plugin",
       "dependencies": [],
       "tags": [
@@ -23,9 +24,9 @@
         "utility"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-auto-loot",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-auto-loot/ee52008/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.0.0/auto-loot-1.0.0.jar",
-      "sha256": "50657edda0c321734b7e7e161af72680372712556e697f0e3a5289576ac8d69f",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-auto-loot/dc8005c/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.1.0/auto-loot-1.1.0.jar",
+      "sha256": "08ff1f111497b7cea02fce71108007dc032e6a2b8111148d2dfd0af730602206",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -36,10 +37,19 @@
           "sha256": "50657edda0c321734b7e7e161af72680372712556e697f0e3a5289576ac8d69f",
           "date": "2026-07-04",
           "dependencies": []
+        },
+        "1.1.0": {
+          "apiVersion": "0.4.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.1.0/auto-loot-1.1.0.jar",
+          "sha256": "08ff1f111497b7cea02fce71108007dc032e6a2b8111148d2dfd0af730602206",
+          "date": "2026-07-05",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/boss-lib",
@@ -178,11 +188,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.3.1",
+      "apiVersion": "0.4.0",
       "type": "plugin",
       "dependencies": [
         "boss-lib:1.0.0"
@@ -193,9 +204,9 @@
         "slayer"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-demonic-gorilla",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-demonic-gorilla/198d86d/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.0.0/demonic-gorilla-1.0.0.jar",
-      "sha256": "a09af6525adb69894815fc3b60118c51286ef76df4041cc1952167689ff15266",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-demonic-gorilla/93dfede/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.1.0/demonic-gorilla-1.1.0.jar",
+      "sha256": "94be9d81d2e4c655ace7cedd3ffc83cb003843cfab35048876809e2d26e618ea",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -208,10 +219,21 @@
           "dependencies": [
             "boss-lib:1.0.0"
           ]
+        },
+        "1.1.0": {
+          "apiVersion": "0.4.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.1.0/demonic-gorilla-1.1.0.jar",
+          "sha256": "94be9d81d2e4c655ace7cedd3ffc83cb003843cfab35048876809e2d26e618ea",
+          "date": "2026-07-05",
+          "dependencies": [
+            "boss-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/fighter",
@@ -509,6 +531,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-04T06:20:14.172Z",
+  "updated": "2026-07-05T21:56:52.130Z",
   "totalPlugins": 12
 }
