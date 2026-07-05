@@ -474,11 +474,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.2.0",
+      "apiVersion": "0.7.0",
       "type": "library",
       "dependencies": [],
       "tags": [
@@ -486,9 +487,9 @@
         "library"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-skilling-lib",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-skilling-lib/88223b2/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.0.0/skilling-lib-1.0.0.jar",
-      "sha256": "d91e2543a2069170062dab87e4f10130ca8c301a5dfb78cb1ad40750e165b610",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-skilling-lib/3cd3fc4/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.1.0/skilling-lib-1.1.0.jar",
+      "sha256": "65b5452cff58860239691c355ff35ff6cad2686feaa455e8e85da1c6cea08fbc",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -499,10 +500,19 @@
           "sha256": "d91e2543a2069170062dab87e4f10130ca8c301a5dfb78cb1ad40750e165b610",
           "date": "2026-07-04",
           "dependencies": []
+        },
+        "1.1.0": {
+          "apiVersion": "0.7.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.1.0/skilling-lib-1.1.0.jar",
+          "sha256": "65b5452cff58860239691c355ff35ff6cad2686feaa455e8e85da1c6cea08fbc",
+          "date": "2026-07-05",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/woodcutter",
@@ -601,6 +611,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-05T21:57:40.371Z",
+  "updated": "2026-07-05T21:57:47.611Z",
   "totalPlugins": 12
 }
