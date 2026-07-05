@@ -100,11 +100,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.3.1",
+      "apiVersion": "0.4.0",
       "type": "plugin",
       "dependencies": [
         "boss-lib:1.0.0"
@@ -115,9 +116,9 @@
         "f2p"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-brutus",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-brutus/579c55c/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.0.0/brutus-1.0.0.jar",
-      "sha256": "aa1976a6bb50fb119fe1a815a66c12315554df17025cd45acdc6fe1195824a7d",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-brutus/79f5729/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.1.0/brutus-1.1.0.jar",
+      "sha256": "d9b8201e049c121f5e7fe71d49225687da4705ea1244384d9e9df4fc4d64f414",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -130,10 +131,21 @@
           "dependencies": [
             "boss-lib:1.0.0"
           ]
+        },
+        "1.1.0": {
+          "apiVersion": "0.4.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.1.0/brutus-1.1.0.jar",
+          "sha256": "d9b8201e049c121f5e7fe71d49225687da4705ea1244384d9e9df4fc4d64f414",
+          "date": "2026-07-05",
+          "dependencies": [
+            "boss-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/cooker",
@@ -244,11 +256,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.2.0",
+      "apiVersion": "0.4.0",
       "type": "plugin",
       "dependencies": [],
       "tags": [
@@ -257,9 +270,9 @@
         "kill"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-fighter",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fighter/ce7a488/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.0.0/fighter-1.0.0.jar",
-      "sha256": "5acbf9cc3b3b0ef81e9fbd2850b81d1030277654bdf725b789b3228422a2c50b",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fighter/e27edb9/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.1.0/fighter-1.1.0.jar",
+      "sha256": "fc2cb2af422b84cb739a06547b60b0b178c6be75233fed34e03e445d8dfa19bf",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -270,10 +283,19 @@
           "sha256": "5acbf9cc3b3b0ef81e9fbd2850b81d1030277654bdf725b789b3228422a2c50b",
           "date": "2026-07-04",
           "dependencies": []
+        },
+        "1.1.0": {
+          "apiVersion": "0.4.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.1.0/fighter-1.1.0.jar",
+          "sha256": "fc2cb2af422b84cb739a06547b60b0b178c6be75233fed34e03e445d8dfa19bf",
+          "date": "2026-07-05",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/firemaker",
@@ -284,11 +306,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.2.0",
+      "apiVersion": "0.7.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -299,9 +322,9 @@
         "processing"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-firemaker",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-firemaker/8ea99c8/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/firemaker-1.0.0/firemaker-1.0.0.jar",
-      "sha256": "03ef30c0d4006e31dad72c2f2673ae8cba95894c8c995c65f6cd0d7d5fafc746",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-firemaker/5c10ec0/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/firemaker-1.1.0/firemaker-1.1.0.jar",
+      "sha256": "c126f201c380951da3639e1dcb2ee94880b9d831f2edc8c77698b8c9187e1d99",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -314,10 +337,21 @@
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
+        },
+        "1.1.0": {
+          "apiVersion": "0.7.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/firemaker-1.1.0/firemaker-1.1.0.jar",
+          "sha256": "c126f201c380951da3639e1dcb2ee94880b9d831f2edc8c77698b8c9187e1d99",
+          "date": "2026-07-05",
+          "dependencies": [
+            "skilling-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-05"
     },
     {
       "id": "MrManiacc/fisher",
@@ -531,6 +565,6 @@
       "updated": "2026-07-04"
     }
   ],
-  "updated": "2026-07-05T21:56:57.625Z",
+  "updated": "2026-07-05T21:57:15.503Z",
   "totalPlugins": 12
 }
