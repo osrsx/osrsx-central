@@ -171,7 +171,7 @@
         "1.0.0",
         "1.1.0"
       ],
-      "apiVersion": "0.7.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -182,9 +182,9 @@
         "processing"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-cooker",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-cooker/c3ed9a2/README.md",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-cooker/0450288/README.md",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/cooker-1.1.0/cooker-1.1.0.jar",
-      "sha256": "b074bacc6a6e956709a5fdb9e94009f37af61d6446a8168da467a3d3b380ca9c",
+      "sha256": "3ca0ee4606f843c081a8bd4bbe4d61786c45f57a6075b4a9d04366a2f8d8c84c",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -199,19 +199,19 @@
           ]
         },
         "1.1.0": {
-          "apiVersion": "0.7.0",
+          "apiVersion": "0.9.0",
           "apiRange": "[0.0.0,1.0.0)",
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/cooker-1.1.0/cooker-1.1.0.jar",
-          "sha256": "b074bacc6a6e956709a5fdb9e94009f37af61d6446a8168da467a3d3b380ca9c",
-          "date": "2026-07-05",
+          "sha256": "3ca0ee4606f843c081a8bd4bbe4d61786c45f57a6075b4a9d04366a2f8d8c84c",
+          "date": "2026-07-06",
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/demonic-gorilla",
@@ -445,7 +445,7 @@
         "1.0.0",
         "1.1.0"
       ],
-      "apiVersion": "0.7.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -456,9 +456,9 @@
         "gathering"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-miner",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-miner/ab0dfe2/README.md",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-miner/4e99499/README.md",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-1.1.0/miner-1.1.0.jar",
-      "sha256": "379e7a98f9c0dc51cb3a65dcaae964596fa8b450c33d46437bb5d81e7d12c00d",
+      "sha256": "2361095fac161d5acdf8859eaaed2ad07ef421bdd1c052ac3b637d4792fe3d80",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -473,19 +473,19 @@
           ]
         },
         "1.1.0": {
-          "apiVersion": "0.7.0",
+          "apiVersion": "0.9.0",
           "apiRange": "[0.0.0,1.0.0)",
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-1.1.0/miner-1.1.0.jar",
-          "sha256": "379e7a98f9c0dc51cb3a65dcaae964596fa8b450c33d46437bb5d81e7d12c00d",
-          "date": "2026-07-05",
+          "sha256": "2361095fac161d5acdf8859eaaed2ad07ef421bdd1c052ac3b637d4792fe3d80",
+          "date": "2026-07-06",
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/skilling-lib",
@@ -550,7 +550,7 @@
         "1.0.0",
         "1.1.0"
       ],
-      "apiVersion": "0.7.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -561,9 +561,9 @@
         "gathering"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-woodcutter",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/c427abc/README.md",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/48d5b16/README.md",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.1.0/woodcutter-1.1.0.jar",
-      "sha256": "347390d9af3373c65b8017a39a238137a0d92ae745a36f3b71d241a3e93aad8f",
+      "sha256": "28c3239b2e82f0fdfb9f9a85e08e27b5a0576257454e6f574f8ae0807bc0a650",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -578,19 +578,19 @@
           ]
         },
         "1.1.0": {
-          "apiVersion": "0.7.0",
+          "apiVersion": "0.9.0",
           "apiRange": "[0.0.0,1.0.0)",
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.1.0/woodcutter-1.1.0.jar",
-          "sha256": "347390d9af3373c65b8017a39a238137a0d92ae745a36f3b71d241a3e93aad8f",
-          "date": "2026-07-05",
+          "sha256": "28c3239b2e82f0fdfb9f9a85e08e27b5a0576257454e6f574f8ae0807bc0a650",
+          "date": "2026-07-06",
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "ziggle-dev/bank-organizer",
@@ -641,8 +641,49 @@
       },
       "created": "2026-07-04",
       "updated": "2026-07-06"
+    },
+    {
+      "id": "ziggle-dev/birdhouse",
+      "org": "ziggle-dev",
+      "name": "Birdhouse Runs",
+      "description": "Gathers supplies from the bank, web-walks to Fossil Island (via the Digsite pendant), then harvests, rebuilds and re-seeds all four bird houses.",
+      "author": "ziggle-dev",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "apiVersion": "0.7.1",
+      "type": "plugin",
+      "dependencies": [],
+      "tags": [
+        "hunter",
+        "skilling",
+        "birdhouse",
+        "fossil-island"
+      ],
+      "repository": "https://github.com/ziggle-dev/osrsx-birdhouse",
+      "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-birdhouse/3b4fb2f/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/birdhouse-1.0.0/birdhouse-1.0.0.jar",
+      "sha256": "b83c5c83c1c0ca805ab76fd0b33185df24330689e56fcc9ba4c7d46d09394494",
+      "changelog": "",
+      "versionInfo": {
+        "1.0.0": {
+          "apiVersion": "0.7.1",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/birdhouse-1.0.0/birdhouse-1.0.0.jar",
+          "sha256": "b83c5c83c1c0ca805ab76fd0b33185df24330689e56fcc9ba4c7d46d09394494",
+          "date": "2026-07-05",
+          "dependencies": []
+        }
+      },
+      "created": "2026-07-05",
+      "updated": "2026-07-05"
     }
   ],
-  "updated": "2026-07-06T01:01:27.333Z",
-  "totalPlugins": 12
+  "updated": "2026-07-06T01:14:04.161Z",
+  "totalPlugins": 13
 }
