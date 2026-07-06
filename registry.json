@@ -428,16 +428,17 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.2.0",
+      "latest": "1.3.0",
       "versions": [
         "1.0.0",
         "1.1.0",
-        "1.2.0"
+        "1.2.0",
+        "1.3.0"
       ],
       "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
-        "skilling-lib:1.0.0"
+        "skilling-lib:1.2.0"
       ],
       "tags": [
         "skilling",
@@ -445,9 +446,9 @@
         "gathering"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-fisher",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fisher/134aac1/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fisher-1.2.0/fisher-1.2.0.jar",
-      "sha256": "6ad6ace696f4745be5c73a22b35c0d57c53599384137fa8428385261143609bc",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fisher/99271d3/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fisher-1.3.0/fisher-1.3.0.jar",
+      "sha256": "d62ad99411dfc9393c999c6959775e67a65ad6c0b65a10f714379e51c8146e5e",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -481,6 +482,17 @@
           "date": "2026-07-06",
           "dependencies": [
             "skilling-lib:1.0.0"
+          ]
+        },
+        "1.3.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fisher-1.3.0/fisher-1.3.0.jar",
+          "sha256": "d62ad99411dfc9393c999c6959775e67a65ad6c0b65a10f714379e51c8146e5e",
+          "date": "2026-07-06",
+          "dependencies": [
+            "skilling-lib:1.2.0"
           ]
         }
       },
@@ -782,6 +794,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-06T15:07:52.852Z",
+  "updated": "2026-07-06T15:08:06.051Z",
   "totalPlugins": 13
 }
