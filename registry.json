@@ -312,12 +312,13 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
-      "apiVersion": "0.4.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [],
       "tags": [
@@ -326,9 +327,9 @@
         "kill"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-fighter",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fighter/e27edb9/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.1.0/fighter-1.1.0.jar",
-      "sha256": "fc2cb2af422b84cb739a06547b60b0b178c6be75233fed34e03e445d8dfa19bf",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fighter/78ec886/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.2.0/fighter-1.2.0.jar",
+      "sha256": "9e29e5ea2c5ad0d3e50e72a93193f0c6eede845ca7974d761485225f4d9313dc",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -348,10 +349,19 @@
           "sha256": "fc2cb2af422b84cb739a06547b60b0b178c6be75233fed34e03e445d8dfa19bf",
           "date": "2026-07-05",
           "dependencies": []
+        },
+        "1.2.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.2.0/fighter-1.2.0.jar",
+          "sha256": "9e29e5ea2c5ad0d3e50e72a93193f0c6eede845ca7974d761485225f4d9313dc",
+          "date": "2026-07-06",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/firemaker",
@@ -718,6 +728,6 @@
       "updated": "2026-07-05"
     }
   ],
-  "updated": "2026-07-06T01:14:45.048Z",
+  "updated": "2026-07-06T01:17:59.563Z",
   "totalPlugins": 13
 }
