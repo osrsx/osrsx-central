@@ -19,7 +19,7 @@
       "commit": "37a9232",
       "apiVersion": "0.9.0",
       "apiRange": "[0.0.0,1.0.0)",
-      "sha256": "179811b29114baf72ab38c25c9c817b53da57c7ce22014adcdb8310fe571353e",
+      "sha256": "a2a3f2bea14f5757df9336751a21c430d39bd4d3f8081fb7a1ab4f567061eebc",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.1.0/bank-organizer-1.1.0.jar",
       "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-bank-organizer/37a9232/README.md",
       "changelog": "",
