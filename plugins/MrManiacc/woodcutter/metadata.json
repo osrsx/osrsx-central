@@ -29,9 +29,22 @@
       "dependencies": [
         "skilling-lib:1.0.0"
       ]
+    },
+    "1.2.0": {
+      "date": "2026-07-06",
+      "commit": "f43114a",
+      "apiVersion": "0.9.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "9ea6762f8b5515bbf78589397d1e6940bac670e11245d63dc34bc2c53730f585",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.2.0/woodcutter-1.2.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/f43114a/README.md",
+      "changelog": "",
+      "dependencies": [
+        "skilling-lib:1.2.0"
+      ]
     }
   },
-  "latest": "1.1.0",
+  "latest": "1.2.0",
   "name": "Woodcutter",
   "description": "Chops the best tree for your level and banks or drops the logs.",
   "authors": [
