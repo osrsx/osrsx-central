@@ -601,11 +601,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.0",
       "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
-      "apiVersion": "0.1.7",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [],
       "tags": [
@@ -614,9 +615,9 @@
         "organise"
       ],
       "repository": "https://github.com/ziggle-dev/osrsx-bank-organizer",
-      "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-bank-organizer/80a8df9/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.0.0/bank-organizer-1.0.0.jar",
-      "sha256": "2001148a89098b568fff16b0a380854040bfbd7aab918d0feed23f3b2910b639",
+      "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-bank-organizer/37a9232/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.1.0/bank-organizer-1.1.0.jar",
+      "sha256": "179811b29114baf72ab38c25c9c817b53da57c7ce22014adcdb8310fe571353e",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -627,12 +628,21 @@
           "sha256": "2001148a89098b568fff16b0a380854040bfbd7aab918d0feed23f3b2910b639",
           "date": "2026-07-04",
           "dependencies": []
+        },
+        "1.1.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.1.0/bank-organizer-1.1.0.jar",
+          "sha256": "179811b29114baf72ab38c25c9c817b53da57c7ce22014adcdb8310fe571353e",
+          "date": "2026-07-06",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-04"
+      "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-05T21:58:01.755Z",
+  "updated": "2026-07-06T01:01:27.333Z",
   "totalPlugins": 12
 }
