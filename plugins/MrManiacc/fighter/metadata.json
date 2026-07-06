@@ -25,9 +25,20 @@
       "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fighter/e27edb9/README.md",
       "changelog": "",
       "dependencies": []
+    },
+    "1.2.0": {
+      "date": "2026-07-06",
+      "commit": "78ec886",
+      "apiVersion": "0.9.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "9e29e5ea2c5ad0d3e50e72a93193f0c6eede845ca7974d761485225f4d9313dc",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fighter-1.2.0/fighter-1.2.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fighter/78ec886/README.md",
+      "changelog": "",
+      "dependencies": []
     }
   },
-  "latest": "1.1.0",
+  "latest": "1.2.0",
   "name": "Fighter",
   "description": "Attacks a configured NPC, eats food and loots drops.",
   "authors": [

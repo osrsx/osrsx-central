@@ -1,0 +1,12 @@
+id: MrManiacc/fighter
+name: Fighter
+version: 1.2.0
+type: plugin
+apiVersion: 0.9.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-fighter
+commit: 78ec886
+date: 2026-07-06
+sha256: 9e29e5ea2c5ad0d3e50e72a93193f0c6eede845ca7974d761485225f4d9313dc
+artifact: https://github.com/osrsx/osrsx-central/releases/download/fighter-1.2.0/fighter-1.2.0.jar
