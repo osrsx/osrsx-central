@@ -18,13 +18,13 @@
       ]
     },
     "1.1.0": {
-      "date": "2026-07-05",
-      "commit": "c3ed9a2",
-      "apiVersion": "0.7.0",
+      "date": "2026-07-06",
+      "commit": "0450288",
+      "apiVersion": "0.9.0",
       "apiRange": "[0.0.0,1.0.0)",
-      "sha256": "b074bacc6a6e956709a5fdb9e94009f37af61d6446a8168da467a3d3b380ca9c",
+      "sha256": "3ca0ee4606f843c081a8bd4bbe4d61786c45f57a6075b4a9d04366a2f8d8c84c",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/cooker-1.1.0/cooker-1.1.0.jar",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-cooker/c3ed9a2/README.md",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-cooker/0450288/README.md",
       "changelog": "",
       "dependencies": [
         "skilling-lib:1.0.0"
