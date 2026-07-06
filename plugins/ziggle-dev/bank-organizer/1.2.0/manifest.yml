@@ -1,0 +1,12 @@
+id: ziggle-dev/bank-organizer
+name: Bank Organizer
+version: 1.2.0
+type: plugin
+apiVersion: 0.9.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: ziggle-dev
+repository: https://github.com/ziggle-dev/osrsx-bank-organizer
+commit: 926dd65
+date: 2026-07-06
+sha256: cda72c5026408f8cf7372e22af694f8740594d3b2b78d821b17dbcddd36bc8b5
+artifact: https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.2.0/bank-organizer-1.2.0.jar
