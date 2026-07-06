@@ -29,9 +29,22 @@
       "dependencies": [
         "boss-lib:1.0.0"
       ]
+    },
+    "1.2.0": {
+      "date": "2026-07-06",
+      "commit": "de51765",
+      "apiVersion": "0.9.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "94356fbdd60eccbcac50a37f12758ced4352e406b0693b2eebbd4433699b500e",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.2.0/demonic-gorilla-1.2.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-demonic-gorilla/de51765/README.md",
+      "changelog": "",
+      "dependencies": [
+        "boss-lib:1.0.0"
+      ]
     }
   },
-  "latest": "1.1.0",
+  "latest": "1.2.0",
   "name": "Demonic Gorillas",
   "description": "Kills demonic gorillas: reactive protection prayer, offensive-style switching, boulder dodging.",
   "authors": [
