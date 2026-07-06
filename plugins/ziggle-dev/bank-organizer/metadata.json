@@ -13,9 +13,20 @@
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.0.0/bank-organizer-1.0.0.jar",
       "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-bank-organizer/80a8df9/README.md",
       "changelog": ""
+    },
+    "1.1.0": {
+      "date": "2026-07-06",
+      "commit": "37a9232",
+      "apiVersion": "0.9.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "179811b29114baf72ab38c25c9c817b53da57c7ce22014adcdb8310fe571353e",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.1.0/bank-organizer-1.1.0.jar",
+      "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-bank-organizer/37a9232/README.md",
+      "changelog": "",
+      "dependencies": []
     }
   },
-  "latest": "1.0.0",
+  "latest": "1.1.0",
   "name": "Bank Organizer",
   "description": "Files the whole bank into smart category tabs (or sorts it) by humanised drag-and-drop.",
   "authors": [
@@ -25,5 +36,6 @@
     "bank",
     "utility",
     "organise"
-  ]
+  ],
+  "type": "plugin"
 }
