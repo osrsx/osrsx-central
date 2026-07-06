@@ -557,7 +557,7 @@
         "1.0.0",
         "1.1.0"
       ],
-      "apiVersion": "0.7.0",
+      "apiVersion": "0.9.0",
       "type": "library",
       "dependencies": [],
       "tags": [
@@ -567,7 +567,7 @@
       "repository": "https://github.com/MrManiacc/osrsx-skilling-lib",
       "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-skilling-lib/3cd3fc4/README.md",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.1.0/skilling-lib-1.1.0.jar",
-      "sha256": "65b5452cff58860239691c355ff35ff6cad2686feaa455e8e85da1c6cea08fbc",
+      "sha256": "c2de03b9163b3199ca5950b60954ad8eb85753c83fc0a909e742b9ff9924cb5b",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -580,17 +580,17 @@
           "dependencies": []
         },
         "1.1.0": {
-          "apiVersion": "0.7.0",
+          "apiVersion": "0.9.0",
           "apiRange": "[0.0.0,1.0.0)",
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.1.0/skilling-lib-1.1.0.jar",
-          "sha256": "65b5452cff58860239691c355ff35ff6cad2686feaa455e8e85da1c6cea08fbc",
-          "date": "2026-07-05",
+          "sha256": "c2de03b9163b3199ca5950b60954ad8eb85753c83fc0a909e742b9ff9924cb5b",
+          "date": "2026-07-06",
           "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/woodcutter",
@@ -750,6 +750,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-06T03:14:53.083Z",
+  "updated": "2026-07-06T14:55:38.939Z",
   "totalPlugins": 13
 }
