@@ -120,12 +120,13 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
-      "apiVersion": "0.4.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
         "boss-lib:1.0.0"
@@ -136,9 +137,9 @@
         "f2p"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-brutus",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-brutus/79f5729/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.1.0/brutus-1.1.0.jar",
-      "sha256": "d9b8201e049c121f5e7fe71d49225687da4705ea1244384d9e9df4fc4d64f414",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-brutus/61d7dc9/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.2.0/brutus-1.2.0.jar",
+      "sha256": "0983fca24c4f52dd914f03150483aaea4a2aad8d523582b7a0a05706891de82d",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -162,10 +163,21 @@
           "dependencies": [
             "boss-lib:1.0.0"
           ]
+        },
+        "1.2.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/brutus-1.2.0/brutus-1.2.0.jar",
+          "sha256": "0983fca24c4f52dd914f03150483aaea4a2aad8d523582b7a0a05706891de82d",
+          "date": "2026-07-06",
+          "dependencies": [
+            "boss-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/cooker",
@@ -232,12 +244,13 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
-      "apiVersion": "0.4.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
         "boss-lib:1.0.0"
@@ -248,9 +261,9 @@
         "slayer"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-demonic-gorilla",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-demonic-gorilla/93dfede/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.1.0/demonic-gorilla-1.1.0.jar",
-      "sha256": "94be9d81d2e4c655ace7cedd3ffc83cb003843cfab35048876809e2d26e618ea",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-demonic-gorilla/de51765/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.2.0/demonic-gorilla-1.2.0.jar",
+      "sha256": "94356fbdd60eccbcac50a37f12758ced4352e406b0693b2eebbd4433699b500e",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -274,10 +287,21 @@
           "dependencies": [
             "boss-lib:1.0.0"
           ]
+        },
+        "1.2.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.2.0/demonic-gorilla-1.2.0.jar",
+          "sha256": "94356fbdd60eccbcac50a37f12758ced4352e406b0693b2eebbd4433699b500e",
+          "date": "2026-07-06",
+          "dependencies": [
+            "boss-lib:1.0.0"
+          ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/fighter",
@@ -694,6 +718,6 @@
       "updated": "2026-07-05"
     }
   ],
-  "updated": "2026-07-06T01:14:23.629Z",
+  "updated": "2026-07-06T01:14:45.048Z",
   "totalPlugins": 13
 }
