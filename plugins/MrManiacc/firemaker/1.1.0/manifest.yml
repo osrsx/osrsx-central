@@ -2,11 +2,11 @@ id: MrManiacc/firemaker
 name: Firemaker
 version: 1.1.0
 type: plugin
-apiVersion: 0.7.0
+apiVersion: 0.9.0
 apiRange: "[0.0.0,1.0.0)"
 publisher: MrManiacc
 repository: https://github.com/MrManiacc/osrsx-firemaker
-commit: 5c10ec0
-date: 2026-07-05
-sha256: c126f201c380951da3639e1dcb2ee94880b9d831f2edc8c77698b8c9187e1d99
+commit: 85b032e
+date: 2026-07-06
+sha256: d024bda92c00058009078d542c5f6ac39549fe1863c8c41f7a09583503586e12
 artifact: https://github.com/osrsx/osrsx-central/releases/download/firemaker-1.1.0/firemaker-1.1.0.jar
