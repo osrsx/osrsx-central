@@ -18,13 +18,13 @@
       ]
     },
     "1.1.0": {
-      "date": "2026-07-05",
-      "commit": "c427abc",
-      "apiVersion": "0.7.0",
+      "date": "2026-07-06",
+      "commit": "48d5b16",
+      "apiVersion": "0.9.0",
       "apiRange": "[0.0.0,1.0.0)",
-      "sha256": "347390d9af3373c65b8017a39a238137a0d92ae745a36f3b71d241a3e93aad8f",
+      "sha256": "28c3239b2e82f0fdfb9f9a85e08e27b5a0576257454e6f574f8ae0807bc0a650",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.1.0/woodcutter-1.1.0.jar",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/c427abc/README.md",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/48d5b16/README.md",
       "changelog": "",
       "dependencies": [
         "skilling-lib:1.0.0"
