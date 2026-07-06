@@ -10,12 +10,13 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
-      "apiVersion": "0.4.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [],
       "tags": [
@@ -24,9 +25,9 @@
         "utility"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-auto-loot",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-auto-loot/dc8005c/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.1.0/auto-loot-1.1.0.jar",
-      "sha256": "08ff1f111497b7cea02fce71108007dc032e6a2b8111148d2dfd0af730602206",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-auto-loot/16bfa76/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.2.0/auto-loot-1.2.0.jar",
+      "sha256": "88e7a1a32b70456d448dccf353c99593fe474077796ef91dc12f9a65a1e4b635",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -46,10 +47,19 @@
           "sha256": "08ff1f111497b7cea02fce71108007dc032e6a2b8111148d2dfd0af730602206",
           "date": "2026-07-05",
           "dependencies": []
+        },
+        "1.2.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.2.0/auto-loot-1.2.0.jar",
+          "sha256": "88e7a1a32b70456d448dccf353c99593fe474077796ef91dc12f9a65a1e4b635",
+          "date": "2026-07-06",
+          "dependencies": []
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/boss-lib",
@@ -333,7 +343,7 @@
         "1.0.0",
         "1.1.0"
       ],
-      "apiVersion": "0.7.0",
+      "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
         "skilling-lib:1.0.0"
@@ -344,9 +354,9 @@
         "processing"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-firemaker",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-firemaker/5c10ec0/README.md",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-firemaker/85b032e/README.md",
       "artifact": "https://github.com/osrsx/osrsx-central/releases/download/firemaker-1.1.0/firemaker-1.1.0.jar",
-      "sha256": "c126f201c380951da3639e1dcb2ee94880b9d831f2edc8c77698b8c9187e1d99",
+      "sha256": "d024bda92c00058009078d542c5f6ac39549fe1863c8c41f7a09583503586e12",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -361,19 +371,19 @@
           ]
         },
         "1.1.0": {
-          "apiVersion": "0.7.0",
+          "apiVersion": "0.9.0",
           "apiRange": "[0.0.0,1.0.0)",
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/firemaker-1.1.0/firemaker-1.1.0.jar",
-          "sha256": "c126f201c380951da3639e1dcb2ee94880b9d831f2edc8c77698b8c9187e1d99",
-          "date": "2026-07-05",
+          "sha256": "d024bda92c00058009078d542c5f6ac39549fe1863c8c41f7a09583503586e12",
+          "date": "2026-07-06",
           "dependencies": [
             "skilling-lib:1.0.0"
           ]
         }
       },
       "created": "2026-07-04",
-      "updated": "2026-07-05"
+      "updated": "2026-07-06"
     },
     {
       "id": "MrManiacc/fisher",
@@ -684,6 +694,6 @@
       "updated": "2026-07-05"
     }
   ],
-  "updated": "2026-07-06T01:14:04.161Z",
+  "updated": "2026-07-06T01:14:23.629Z",
   "totalPlugins": 13
 }
