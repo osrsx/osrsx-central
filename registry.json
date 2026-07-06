@@ -552,10 +552,11 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
       "apiVersion": "0.9.0",
       "type": "library",
@@ -565,9 +566,9 @@
         "library"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-skilling-lib",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-skilling-lib/3cd3fc4/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.1.0/skilling-lib-1.1.0.jar",
-      "sha256": "c2de03b9163b3199ca5950b60954ad8eb85753c83fc0a909e742b9ff9924cb5b",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-skilling-lib/244d257/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.2.0/skilling-lib-1.2.0.jar",
+      "sha256": "2ba109968950679d531cbb4d557487b4ee87bb6c64186050726ede78eec19f22",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -585,6 +586,15 @@
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.1.0/skilling-lib-1.1.0.jar",
           "sha256": "c2de03b9163b3199ca5950b60954ad8eb85753c83fc0a909e742b9ff9924cb5b",
+          "date": "2026-07-06",
+          "dependencies": []
+        },
+        "1.2.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.2.0/skilling-lib-1.2.0.jar",
+          "sha256": "2ba109968950679d531cbb4d557487b4ee87bb6c64186050726ede78eec19f22",
           "date": "2026-07-06",
           "dependencies": []
         }
@@ -657,10 +667,11 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
       "apiVersion": "0.9.0",
       "type": "plugin",
@@ -671,9 +682,9 @@
         "organise"
       ],
       "repository": "https://github.com/ziggle-dev/osrsx-bank-organizer",
-      "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-bank-organizer/37a9232/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.1.0/bank-organizer-1.1.0.jar",
-      "sha256": "a2a3f2bea14f5757df9336751a21c430d39bd4d3f8081fb7a1ab4f567061eebc",
+      "readme": "https://raw.githubusercontent.com/ziggle-dev/osrsx-bank-organizer/926dd65/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.2.0/bank-organizer-1.2.0.jar",
+      "sha256": "cda72c5026408f8cf7372e22af694f8740594d3b2b78d821b17dbcddd36bc8b5",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -691,6 +702,15 @@
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.1.0/bank-organizer-1.1.0.jar",
           "sha256": "a2a3f2bea14f5757df9336751a21c430d39bd4d3f8081fb7a1ab4f567061eebc",
+          "date": "2026-07-06",
+          "dependencies": []
+        },
+        "1.2.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/bank-organizer-1.2.0/bank-organizer-1.2.0.jar",
+          "sha256": "cda72c5026408f8cf7372e22af694f8740594d3b2b78d821b17dbcddd36bc8b5",
           "date": "2026-07-06",
           "dependencies": []
         }
@@ -750,6 +770,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-06T14:56:18.587Z",
+  "updated": "2026-07-06T15:06:20.077Z",
   "totalPlugins": 13
 }
