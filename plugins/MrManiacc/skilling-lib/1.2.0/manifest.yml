@@ -1,0 +1,12 @@
+id: MrManiacc/skilling-lib
+name: Skilling Library
+version: 1.2.0
+type: library
+apiVersion: 0.9.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-skilling-lib
+commit: 244d257
+date: 2026-07-06
+sha256: 28427fdcaef02dba4002e92973f11466f05a24ef99f914ac4576a1a3ade52956
+artifact: https://github.com/osrsx/osrsx-central/releases/download/skilling-lib-1.2.0/skilling-lib-1.2.0.jar
