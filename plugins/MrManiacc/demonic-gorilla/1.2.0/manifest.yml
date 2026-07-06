@@ -1,0 +1,12 @@
+id: MrManiacc/demonic-gorilla
+name: Demonic Gorillas
+version: 1.2.0
+type: plugin
+apiVersion: 0.9.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: MrManiacc
+repository: https://github.com/MrManiacc/osrsx-demonic-gorilla
+commit: de51765
+date: 2026-07-06
+sha256: 94356fbdd60eccbcac50a37f12758ced4352e406b0693b2eebbd4433699b500e
+artifact: https://github.com/osrsx/osrsx-central/releases/download/demonic-gorilla-1.2.0/demonic-gorilla-1.2.0.jar
