@@ -611,15 +611,16 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
       "apiVersion": "0.9.0",
       "type": "plugin",
       "dependencies": [
-        "skilling-lib:1.0.0"
+        "skilling-lib:1.2.0"
       ],
       "tags": [
         "skilling",
@@ -627,9 +628,9 @@
         "gathering"
       ],
       "repository": "https://github.com/MrManiacc/osrsx-woodcutter",
-      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/48d5b16/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.1.0/woodcutter-1.1.0.jar",
-      "sha256": "28c3239b2e82f0fdfb9f9a85e08e27b5a0576257454e6f574f8ae0807bc0a650",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-woodcutter/f43114a/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.2.0/woodcutter-1.2.0.jar",
+      "sha256": "9ea6762f8b5515bbf78589397d1e6940bac670e11245d63dc34bc2c53730f585",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -652,6 +653,17 @@
           "date": "2026-07-06",
           "dependencies": [
             "skilling-lib:1.0.0"
+          ]
+        },
+        "1.2.0": {
+          "apiVersion": "0.9.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/woodcutter-1.2.0/woodcutter-1.2.0.jar",
+          "sha256": "9ea6762f8b5515bbf78589397d1e6940bac670e11245d63dc34bc2c53730f585",
+          "date": "2026-07-06",
+          "dependencies": [
+            "skilling-lib:1.2.0"
           ]
         }
       },
@@ -770,6 +782,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-06T15:06:22.194Z",
+  "updated": "2026-07-06T15:07:52.852Z",
   "totalPlugins": 13
 }
