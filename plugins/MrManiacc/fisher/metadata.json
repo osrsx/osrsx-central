@@ -29,9 +29,22 @@
       "dependencies": [
         "skilling-lib:1.0.0"
       ]
+    },
+    "1.2.0": {
+      "date": "2026-07-06",
+      "commit": "134aac1",
+      "apiVersion": "0.9.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "6ad6ace696f4745be5c73a22b35c0d57c53599384137fa8428385261143609bc",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/fisher-1.2.0/fisher-1.2.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-fisher/134aac1/README.md",
+      "changelog": "",
+      "dependencies": [
+        "skilling-lib:1.0.0"
+      ]
     }
   },
-  "latest": "1.1.0",
+  "latest": "1.2.0",
   "name": "Fisher",
   "description": "Fishes at a spot and drops or banks the catch.",
   "authors": [
