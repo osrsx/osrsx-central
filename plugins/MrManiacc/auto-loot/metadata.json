@@ -24,9 +24,20 @@
       "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-auto-loot/dc8005c/README.md",
       "changelog": "",
       "dependencies": []
+    },
+    "1.2.0": {
+      "date": "2026-07-06",
+      "commit": "16bfa76",
+      "apiVersion": "0.9.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "88e7a1a32b70456d448dccf353c99593fe474077796ef91dc12f9a65a1e4b635",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/auto-loot-1.2.0/auto-loot-1.2.0.jar",
+      "readme": "https://raw.githubusercontent.com/MrManiacc/osrsx-auto-loot/16bfa76/README.md",
+      "changelog": "",
+      "dependencies": []
     }
   },
-  "latest": "1.1.0",
+  "latest": "1.2.0",
   "name": "Auto Loot",
   "description": "Picks up configured ground items within a radius.",
   "authors": [
