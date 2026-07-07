@@ -683,6 +683,46 @@
       "updated": "2026-07-06"
     },
     {
+      "id": "osrsx-dev/miner",
+      "org": "osrsx-dev",
+      "name": "Miner",
+      "description": "Mines a chosen ore at a chosen location, with the right requirements per site.",
+      "author": "osrsx-dev",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "2.0.0",
+      "versions": [
+        "2.0.0"
+      ],
+      "apiVersion": "0.11.4",
+      "type": "plugin",
+      "dependencies": [],
+      "tags": [
+        "skilling",
+        "mining",
+        "gathering"
+      ],
+      "repository": "https://github.com/osrsx-dev/osrsx-miner",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-miner/c90629a/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.0/miner-2.0.0.jar",
+      "sha256": "8dc60b6ddd2f68ad3142b62a1b0820e495a74adc25fa0a4875be6a4732088d8d",
+      "changelog": "",
+      "versionInfo": {
+        "2.0.0": {
+          "apiVersion": "0.11.4",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.0/miner-2.0.0.jar",
+          "sha256": "8dc60b6ddd2f68ad3142b62a1b0820e495a74adc25fa0a4875be6a4732088d8d",
+          "date": "2026-07-07",
+          "dependencies": []
+        }
+      },
+      "created": "2026-07-07",
+      "updated": "2026-07-07"
+    },
+    {
       "id": "ziggle-dev/bank-organizer",
       "org": "ziggle-dev",
       "name": "Bank Organizer",
@@ -794,6 +834,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-06T15:08:06.051Z",
-  "totalPlugins": 13
+  "updated": "2026-07-07T20:06:57.293Z",
+  "totalPlugins": 14
 }
