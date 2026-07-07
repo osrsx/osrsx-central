@@ -25,9 +25,20 @@
       "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-miner/1754183/README.md",
       "changelog": "",
       "dependencies": []
+    },
+    "2.0.2": {
+      "date": "2026-07-07",
+      "commit": "d2e7076",
+      "apiVersion": "0.11.5",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "f00af6495f493559885d2d9e8447ff390d2bc8b40451ffd6becb70edd16a01f7",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.2/miner-2.0.2.jar",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-miner/d2e7076/README.md",
+      "changelog": "",
+      "dependencies": []
     }
   },
-  "latest": "2.0.1",
+  "latest": "2.0.2",
   "name": "Miner",
   "description": "Mines a chosen ore at a chosen location, with the right requirements per site.",
   "authors": [

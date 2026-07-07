@@ -1,0 +1,12 @@
+id: osrsx-dev/miner
+name: Miner
+version: 2.0.2
+type: plugin
+apiVersion: 0.11.5
+apiRange: "[0.0.0,1.0.0)"
+publisher: osrsx-dev
+repository: https://github.com/osrsx-dev/osrsx-miner
+commit: d2e7076
+date: 2026-07-07
+sha256: f00af6495f493559885d2d9e8447ff390d2bc8b40451ffd6becb70edd16a01f7
+artifact: https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.2/miner-2.0.2.jar
