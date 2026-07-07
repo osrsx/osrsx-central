@@ -1,0 +1,31 @@
+{
+  "id": "miner",
+  "publisher": "osrsx-dev",
+  "author": "osrsx-dev",
+  "repository": "https://github.com/osrsx-dev/osrsx-miner",
+  "versions": {
+    "2.0.0": {
+      "date": "2026-07-07",
+      "commit": "c90629a",
+      "apiVersion": "0.11.4",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "8dc60b6ddd2f68ad3142b62a1b0820e495a74adc25fa0a4875be6a4732088d8d",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.0/miner-2.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-miner/c90629a/README.md",
+      "changelog": "",
+      "dependencies": []
+    }
+  },
+  "latest": "2.0.0",
+  "name": "Miner",
+  "description": "Mines a chosen ore at a chosen location, with the right requirements per site.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "skilling",
+    "mining",
+    "gathering"
+  ],
+  "type": "plugin"
+}
