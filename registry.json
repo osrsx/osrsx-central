@@ -691,9 +691,10 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "2.0.0",
+      "latest": "2.0.1",
       "versions": [
-        "2.0.0"
+        "2.0.0",
+        "2.0.1"
       ],
       "apiVersion": "0.11.4",
       "type": "plugin",
@@ -704,9 +705,9 @@
         "gathering"
       ],
       "repository": "https://github.com/osrsx-dev/osrsx-miner",
-      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-miner/c90629a/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.0/miner-2.0.0.jar",
-      "sha256": "8dc60b6ddd2f68ad3142b62a1b0820e495a74adc25fa0a4875be6a4732088d8d",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-miner/1754183/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.1/miner-2.0.1.jar",
+      "sha256": "0e63f6a334c0ca4f6ff652a69c06f7ae8a6c7e33503a41334a4170713227d737",
       "changelog": "",
       "versionInfo": {
         "2.0.0": {
@@ -715,6 +716,15 @@
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.0/miner-2.0.0.jar",
           "sha256": "8dc60b6ddd2f68ad3142b62a1b0820e495a74adc25fa0a4875be6a4732088d8d",
+          "date": "2026-07-07",
+          "dependencies": []
+        },
+        "2.0.1": {
+          "apiVersion": "0.11.4",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/miner-2.0.1/miner-2.0.1.jar",
+          "sha256": "0e63f6a334c0ca4f6ff652a69c06f7ae8a6c7e33503a41334a4170713227d737",
           "date": "2026-07-07",
           "dependencies": []
         }
@@ -834,6 +844,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-07T20:06:57.293Z",
+  "updated": "2026-07-07T20:48:31.581Z",
   "totalPlugins": 14
 }
