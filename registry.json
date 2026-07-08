@@ -733,6 +733,46 @@
       "updated": "2026-07-07"
     },
     {
+      "id": "osrsx-dev/smither",
+      "org": "osrsx-dev",
+      "name": "Smither",
+      "description": "Smiths items at an anvil, or smelts bars at the Blast Furnace.",
+      "author": "osrsx-dev",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.1.0",
+      "versions": [
+        "1.1.0"
+      ],
+      "apiVersion": "0.11.8",
+      "type": "plugin",
+      "dependencies": [],
+      "tags": [
+        "skilling",
+        "smithing",
+        "processing"
+      ],
+      "repository": "https://github.com/osrsx-dev/osrsx-smither",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-smither/1b86e79/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/smither-1.1.0/smither-1.1.0.jar",
+      "sha256": "5e788c42618d963fbad07e19b8bf68b0c449e8f8503e980ed65fab18b2f56254",
+      "changelog": "",
+      "versionInfo": {
+        "1.1.0": {
+          "apiVersion": "0.11.8",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/smither-1.1.0/smither-1.1.0.jar",
+          "sha256": "5e788c42618d963fbad07e19b8bf68b0c449e8f8503e980ed65fab18b2f56254",
+          "date": "2026-07-08",
+          "dependencies": []
+        }
+      },
+      "created": "2026-07-08",
+      "updated": "2026-07-08"
+    },
+    {
       "id": "ziggle-dev/bank-organizer",
       "org": "ziggle-dev",
       "name": "Bank Organizer",
@@ -844,6 +884,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-07T21:01:31.863Z",
-  "totalPlugins": 14
+  "updated": "2026-07-08T06:03:08.150Z",
+  "totalPlugins": 15
 }
