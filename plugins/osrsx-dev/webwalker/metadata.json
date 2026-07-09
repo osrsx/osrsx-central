@@ -1,0 +1,31 @@
+{
+  "id": "webwalker",
+  "publisher": "osrsx-dev",
+  "author": "osrsx-dev",
+  "repository": "https://github.com/osrsx-dev/osrsx-webwalker",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-09",
+      "commit": "4d7ef40",
+      "apiVersion": "0.15.0",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "bd47c92df6b2c75e1e25e3db46103be1de5dbcc3b6d800809f062208d39fccf4",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.0.0/webwalker-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-webwalker/4d7ef40/README.md",
+      "changelog": "",
+      "dependencies": []
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Web Walker",
+  "description": "Drive the global web walker: a control panel with location/NPC/object lookups, an in-world route overlay, and a right-click \"Walk here\" on the world map.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "navigation",
+    "utility",
+    "walking"
+  ],
+  "type": "plugin"
+}
