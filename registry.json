@@ -822,6 +822,46 @@
       "updated": "2026-07-09"
     },
     {
+      "id": "osrsx-dev/webwalker",
+      "org": "osrsx-dev",
+      "name": "Web Walker",
+      "description": "Drive the global web walker: a control panel with location/NPC/object lookups, an in-world route overlay, and a right-click \"Walk here\" on the world map.",
+      "author": "osrsx-dev",
+      "authors": [
+        "osrsx"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "apiVersion": "0.15.0",
+      "type": "plugin",
+      "dependencies": [],
+      "tags": [
+        "navigation",
+        "utility",
+        "walking"
+      ],
+      "repository": "https://github.com/osrsx-dev/osrsx-webwalker",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-webwalker/4d7ef40/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.0.0/webwalker-1.0.0.jar",
+      "sha256": "bd47c92df6b2c75e1e25e3db46103be1de5dbcc3b6d800809f062208d39fccf4",
+      "changelog": "",
+      "versionInfo": {
+        "1.0.0": {
+          "apiVersion": "0.15.0",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.0.0/webwalker-1.0.0.jar",
+          "sha256": "bd47c92df6b2c75e1e25e3db46103be1de5dbcc3b6d800809f062208d39fccf4",
+          "date": "2026-07-09",
+          "dependencies": []
+        }
+      },
+      "created": "2026-07-09",
+      "updated": "2026-07-09"
+    },
+    {
       "id": "ziggle-dev/bank-organizer",
       "org": "ziggle-dev",
       "name": "Bank Organizer",
@@ -933,6 +973,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-09T14:50:25.228Z",
-  "totalPlugins": 16
+  "updated": "2026-07-09T21:09:06.858Z",
+  "totalPlugins": 17
 }
