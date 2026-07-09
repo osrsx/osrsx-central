@@ -741,11 +741,12 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "2.0.0",
       "versions": [
-        "1.1.0"
+        "1.1.0",
+        "2.0.0"
       ],
-      "apiVersion": "0.11.8",
+      "apiVersion": "0.12.1",
       "type": "plugin",
       "dependencies": [],
       "tags": [
@@ -754,9 +755,9 @@
         "processing"
       ],
       "repository": "https://github.com/osrsx-dev/osrsx-smither",
-      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-smither/1b86e79/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/smither-1.1.0/smither-1.1.0.jar",
-      "sha256": "5e788c42618d963fbad07e19b8bf68b0c449e8f8503e980ed65fab18b2f56254",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-smither/a689714/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/smither-2.0.0/smither-2.0.0.jar",
+      "sha256": "d01adf8cbf9421dc811ccb3aaa0bf53de47c6fc482c0bf71c6d52665db756e53",
       "changelog": "",
       "versionInfo": {
         "1.1.0": {
@@ -767,10 +768,19 @@
           "sha256": "5e788c42618d963fbad07e19b8bf68b0c449e8f8503e980ed65fab18b2f56254",
           "date": "2026-07-08",
           "dependencies": []
+        },
+        "2.0.0": {
+          "apiVersion": "0.12.1",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/smither-2.0.0/smither-2.0.0.jar",
+          "sha256": "d01adf8cbf9421dc811ccb3aaa0bf53de47c6fc482c0bf71c6d52665db756e53",
+          "date": "2026-07-09",
+          "dependencies": []
         }
       },
       "created": "2026-07-08",
-      "updated": "2026-07-08"
+      "updated": "2026-07-09"
     },
     {
       "id": "ziggle-dev/bank-organizer",
@@ -884,6 +894,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-08T06:03:08.150Z",
+  "updated": "2026-07-09T02:08:15.041Z",
   "totalPlugins": 15
 }
