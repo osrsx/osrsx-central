@@ -1,0 +1,30 @@
+{
+  "id": "agility",
+  "publisher": "osrsx-dev",
+  "author": "osrsx-dev",
+  "repository": "https://github.com/osrsx-dev/osrsx-agility",
+  "versions": {
+    "1.0.0": {
+      "date": "2026-07-09",
+      "commit": "472f6bf",
+      "apiVersion": "0.12.1",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "c3560df83177f2c1eb9dbaf0345f95de1c7d562bf73d84e7d426b22ca6036567",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/agility-1.0.0/agility-1.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-agility/472f6bf/README.md",
+      "changelog": "",
+      "dependencies": []
+    }
+  },
+  "latest": "1.0.0",
+  "name": "Agility",
+  "description": "Runs a rooftop Agility course: web-walks to the course, traverses every obstacle, picks up Marks of Grace and manages run energy.",
+  "authors": [
+    "osrsx"
+  ],
+  "tags": [
+    "skilling",
+    "agility"
+  ],
+  "type": "plugin"
+}
