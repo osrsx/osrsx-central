@@ -1,0 +1,12 @@
+id: osrsx-dev/agility
+name: Agility
+version: 1.0.0
+type: plugin
+apiVersion: 0.12.1
+apiRange: "[0.0.0,1.0.0)"
+publisher: osrsx-dev
+repository: https://github.com/osrsx-dev/osrsx-agility
+commit: 472f6bf
+date: 2026-07-09
+sha256: c3560df83177f2c1eb9dbaf0345f95de1c7d562bf73d84e7d426b22ca6036567
+artifact: https://github.com/osrsx/osrsx-central/releases/download/agility-1.0.0/agility-1.0.0.jar
