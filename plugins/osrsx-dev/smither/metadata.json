@@ -14,9 +14,20 @@
       "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-smither/1b86e79/README.md",
       "changelog": "",
       "dependencies": []
+    },
+    "2.0.0": {
+      "date": "2026-07-09",
+      "commit": "a689714",
+      "apiVersion": "0.12.1",
+      "apiRange": "[0.0.0,1.0.0)",
+      "sha256": "d01adf8cbf9421dc811ccb3aaa0bf53de47c6fc482c0bf71c6d52665db756e53",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/smither-2.0.0/smither-2.0.0.jar",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-smither/a689714/README.md",
+      "changelog": "",
+      "dependencies": []
     }
   },
-  "latest": "1.1.0",
+  "latest": "2.0.0",
   "name": "Smither",
   "description": "Smiths items at an anvil, or smelts bars at the Blast Furnace.",
   "authors": [
