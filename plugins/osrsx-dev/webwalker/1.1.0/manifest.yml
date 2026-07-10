@@ -1,0 +1,12 @@
+id: osrsx-dev/webwalker
+name: Web Walker
+version: 1.1.0
+type: plugin
+apiVersion: 0.16.0
+apiRange: "[0.0.0,1.0.0)"
+publisher: osrsx-dev
+repository: https://github.com/osrsx-dev/osrsx-webwalker
+commit: 974731a
+date: 2026-07-09
+sha256: 5759618e9354fa7dd3a994322388c0e9dc3e379536381920909545ec45511566
+artifact: https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.1.0/webwalker-1.1.0.jar
