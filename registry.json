@@ -830,12 +830,13 @@
       "authors": [
         "osrsx"
       ],
-      "latest": "1.1.0",
+      "latest": "1.2.0",
       "versions": [
         "1.0.0",
-        "1.1.0"
+        "1.1.0",
+        "1.2.0"
       ],
-      "apiVersion": "0.16.0",
+      "apiVersion": "0.16.1",
       "type": "plugin",
       "dependencies": [],
       "tags": [
@@ -844,9 +845,9 @@
         "walking"
       ],
       "repository": "https://github.com/osrsx-dev/osrsx-webwalker",
-      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-webwalker/974731a/README.md",
-      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.1.0/webwalker-1.1.0.jar",
-      "sha256": "5759618e9354fa7dd3a994322388c0e9dc3e379536381920909545ec45511566",
+      "readme": "https://raw.githubusercontent.com/osrsx-dev/osrsx-webwalker/82dcd93/README.md",
+      "artifact": "https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.2.0/webwalker-1.2.0.jar",
+      "sha256": "44bc4cd4758fbd44060be84a6d953e6aabf2bdad92111981341fc16d31e5e0a1",
       "changelog": "",
       "versionInfo": {
         "1.0.0": {
@@ -864,6 +865,15 @@
           "changelog": "",
           "artifact": "https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.1.0/webwalker-1.1.0.jar",
           "sha256": "5759618e9354fa7dd3a994322388c0e9dc3e379536381920909545ec45511566",
+          "date": "2026-07-09",
+          "dependencies": []
+        },
+        "1.2.0": {
+          "apiVersion": "0.16.1",
+          "apiRange": "[0.0.0,1.0.0)",
+          "changelog": "",
+          "artifact": "https://github.com/osrsx/osrsx-central/releases/download/webwalker-1.2.0/webwalker-1.2.0.jar",
+          "sha256": "44bc4cd4758fbd44060be84a6d953e6aabf2bdad92111981341fc16d31e5e0a1",
           "date": "2026-07-09",
           "dependencies": []
         }
@@ -983,6 +993,6 @@
       "updated": "2026-07-06"
     }
   ],
-  "updated": "2026-07-10T00:01:58.515Z",
+  "updated": "2026-07-10T00:07:14.445Z",
   "totalPlugins": 17
 }
